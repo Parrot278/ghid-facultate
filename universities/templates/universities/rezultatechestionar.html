@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Catalog facultati</title>
+    </head>
+    <body>
+        <h1>Lista facultati</h1>
+        {%for facultate in facultati %}
+        <li>
+            {{facultate.nume}} cu rating {{facultate.rating}}
+        </li>
+        {% endfor %}
+        <br>
+        <a href="{% url 'facultatiromania' %}">
+            <button>Inapoi la meniul precedent</button>
+        </a>
+    </body>
+</html>

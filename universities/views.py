@@ -32,6 +32,20 @@ def salvare_raspunsuri_sesiune(request):
         if key.startswith("intrebare_"):
             request.session["raspunsuri_chestionar"][key] = value
         
-        request.session.modified = True
 
-        return redirect("")
+    request.session.modified = True
+    return redirect("rezultate_chestionar")
+    
+def rezultate_chestionar(request):
+    raspunsuri = request.session.get("raspunsuri_chestionar", {})
+    
+    materii = raspunsuri.get("intrebare_1", [])
+    locatii = raspunsuri.get("intrebare_2", [])
+    recomandari = []
+
+    recomandari = Facultate.objects.filter(
+        materii__nume__in = materii,
+        locatie__in = locatii,
+    )
+
+    return render(request, "universities/rezultatechestionar.html", {"facultati": recomandari})
