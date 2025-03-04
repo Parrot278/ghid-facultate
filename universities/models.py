@@ -16,10 +16,11 @@ class Facultate(models.Model):
     oameni_pe_loc = models.DecimalField(max_digits = 3, decimal_places=1, default= 0.0)
     locatie = models.CharField(max_length = 255)
     materii = models.ManyToManyField(Materie)
-    class Meta:
-        verbose_name_plural = "facultati"
+    
     def __str__(self):
         return self.nume
+    class Meta:
+        verbose_name_plural = "facultati"
     
 
 class Intrebare(models.Model):
