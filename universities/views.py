@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Facultate
 
@@ -22,3 +22,16 @@ def chestionar(request):
 
 def bibliografie(request):
     return render(request, "universities/bibliografie.html")
+
+def salvare_raspunsuri_sesiune(request):
+    if request.method == "POST":
+        if "raspunsuri_chestionar" not in request.session:
+            request.session["raspunsuri_chestionar"] = {}
+    
+    for key, value in request.POST.items():
+        if key.startswith("intrebare_"):
+            request.session["raspunsuri_chestionar"][key] = value
+        
+        request.session.modified = True
+
+        return redirect("")

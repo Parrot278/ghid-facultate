@@ -14,10 +14,10 @@ class Facultate(models.Model):
     
 
 class Intrebare(models.Model):
-    text = models.TextField()
+    text_intrebare = models.TextField()
 
     def __str__(self): # cand se apeleaza .self ne arata textul
-        return self.text
+        return self.text_intrebare
     
     class Meta:
         verbose_name_plural = "intrebari"
@@ -25,10 +25,10 @@ class Intrebare(models.Model):
 
 class Raspuns(models.Model):
     intrebare = models.ForeignKey(Intrebare, on_delete = models.CASCADE)
-    text = models.CharField(max_length=200)
+    text_raspuns = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.text
+        return self.text_raspuns
     
     class Meta:
         verbose_name_plural = "raspunsuri"
