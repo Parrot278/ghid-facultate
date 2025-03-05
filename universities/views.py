@@ -30,7 +30,7 @@ def chestionar(request):
             rezultate_facultati = Facultate.objects.filter(
                 materie__in = Facultate.materii
             )
-            return render(request, "universities/rezultate.html", {
+            return render(request, "universities/rezultate_chestionar.html", {
                 "materie": materie,
                 "facultati": rezultate_facultati
             })

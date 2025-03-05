@@ -8,5 +8,4 @@ urlpatterns = [
     path("chestionar/", views.chestionar, name = "chestionar"),
     path("bibliografie/", views.bibliografie, name = "bibliografie"),
     path("cvmeniu/", views.cv_meniu, name = "cvmeniu"),
-    path("rezultatechestionar/", views.rezultate_chestionar, name = "rezultatechestionar"),
 ]
