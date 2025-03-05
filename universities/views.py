@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Facultate
+from .models import Facultate, Intrebare
 
 # Create your views here.
 
@@ -18,7 +18,8 @@ def cv_meniu(request):
     return render(request, "universities/cv.de.succes.html")
 
 def chestionar(request):
-    return render(request, "universities/chestionar.html")
+    intrebari = Intrebare.objects.all()
+    return render(request, "universities/chestionar.html", {"intrebari": intrebari})
 
 def bibliografie(request):
     return render(request, "universities/bibliografie.html")

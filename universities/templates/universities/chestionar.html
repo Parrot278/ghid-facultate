@@ -4,7 +4,11 @@
 
     </head>
     <body>
-        <p>Under construction</p>
+        {%for intrebare in intrebari %}
+        <li>
+            {{intrebare.text_intrebare}}
+        </li>
+        {% endfor %}
         <a href="{% url 'facultatiromania' %}">
             <button>Inapoi la meniul precedent</button>
         </a>
