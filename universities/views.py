@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Facultate, Intrebare
+from .forms import Chestionar
+from .models import Facultate
 
 # Create your views here.
 
@@ -17,36 +18,23 @@ def catalog_facultati(request):
 def cv_meniu(request):
     return render(request, "universities/cv.de.succes.html")
 
-def chestionar(request):
-    intrebari = Intrebare.objects.all()
-    return render(request, "universities/chestionar.html", {"intrebari": intrebari})
-
 def bibliografie(request):
     return render(request, "universities/bibliografie.html")
 
-def salvare_raspunsuri_sesiune(request):
+def chestionar(request):
     if request.method == "POST":
-        if "raspunsuri_chestionar" not in request.session:
-            request.session["raspunsuri_chestionar"] = {}
-    
-    for key, value in request.POST.items():
-        if key.startswith("intrebare_"):
-            request.session["raspunsuri_chestionar"][key] = value
-        
+        form = Chestionar(request.POST)
+        if form.is_valid():
+            materie = form.cleaned_data["materie_preferata"]
 
-    request.session.modified = True
-    return redirect("rezultate_chestionar")
+            rezultate_facultati = Facultate.objects.filter(
+                materie__in = Facultate.materii
+            )
+            return render(request, "universities/rezultate.html", {
+                "materie": materie,
+                "facultati": rezultate_facultati
+            })
+        else:
+            form = Chestionar()
     
-def rezultate_chestionar(request):
-    raspunsuri = request.session.get("raspunsuri_chestionar", {})
-    
-    materii = raspunsuri.get("intrebare_1", [])
-    locatii = raspunsuri.get("intrebare_2", [])
-    recomandari = []
-
-    recomandari = Facultate.objects.filter(
-        materii__nume__in = materii,
-        locatie__in = locatii,
-    )
-
-    return render(request, "universities/rezultatechestionar.html", {"facultati": recomandari})
+    return render(request, "universities/chestionar.html", {"form": form})

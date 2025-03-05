@@ -23,23 +23,23 @@ class Facultate(models.Model):
         verbose_name_plural = "facultati"
     
 
-class Intrebare(models.Model):
-    text_intrebare = models.TextField()
+# class Intrebare(models.Model):
+#     text_intrebare = models.TextField()
 
-    def __str__(self): # cand se apeleaza .self ne arata textul intrebarii
-        return self.text_intrebare
-    class Meta:
-        verbose_name_plural = "intrebari"
+#     def __str__(self): # cand se apeleaza .self ne arata textul intrebarii
+#         return self.text_intrebare
+#     class Meta:
+#         verbose_name_plural = "intrebari"
 
 
-class Raspuns(models.Model):
-    intrebare = models.ForeignKey(Intrebare, on_delete = models.CASCADE)
-    text_raspuns = models.CharField(max_length=200)
+# class Raspuns(models.Model):
+#     intrebare = models.ForeignKey(Intrebare, on_delete = models.CASCADE)
+#     text_raspuns = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.text_raspuns
-    class Meta:
-        verbose_name_plural = "raspunsuri"
+#     def __str__(self):
+#         return self.text_raspuns
+#     class Meta:
+#         verbose_name_plural = "raspunsuri"
 
 
 
