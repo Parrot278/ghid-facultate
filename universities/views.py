@@ -22,7 +22,7 @@ def bibliografie(request):
 
 def detalii_facultate(request, facultate_id):
     facultate = get_object_or_404(Facultate, id = facultate_id)
-    return render(request, "universities/detaliifacultate.html"), {"facultate": facultate}
+    return render(request, "universities/detaliifacultate.html", {"facultate": facultate})
 
 def chestionar(request):
     if request.method == "POST":
