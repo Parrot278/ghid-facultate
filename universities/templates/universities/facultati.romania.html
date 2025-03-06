@@ -2,31 +2,36 @@
 <html>
     <head>
         <title>Facultati Romania</title>
+        <style>
+            body{
+                    background-image: url('images/unibuc.jpg');
+                    background-size: cover;
+                    /*background-position: center;
+                    background-repeat: no-repeat; */
+                }
+                h1 {
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color:rgb(0, 0, 0);
+                }
+                a {
+                    text-align: center;
+                    color: black;
+                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                    background-color: rgb(255, 204, 128);
+                    border-radius: 5px;
+                }
+                img {
+                    float: left;
+                    width: 200px;
+                    border-radius: 10px;
+                    margin: 10px 10px 10px 10px;
+                }
+        </style>
     </head>
-    <style>
-        body{
-                background-color:rgb(210, 210, 210);
-            }
-            h1{
-                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color:darkgreen;
-            }
-            a {
-                text-decoration: none;
-                color: blueviolet;
-                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-                background-color: cyan;
-            }
-    </style>
     <body>
+        <img src="images/facultas.jpg" alt="Cannot display image :(">
         <h1>Facultati Romania</h1>
-        <a href="{% url 'catalogfacultati' %}">Catalog</a>
-        <br>
-        <a href="{% url 'chestionar' %}">Chestionar</a>
-        <br>
-        <br>
-        <a href="{% url 'ecranprincipal' %}">
-            <button>Inapoi la meniul precedent</button>
-        </a>
+        <a href="catalog.html">Catalog</a>
+        <a href="chestionar.html">Chestionar</a>
     </body>
 </html>
