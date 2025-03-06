@@ -4,36 +4,71 @@
         <title> Facultas - pagina principala</title>
         <style>
             body{
-                background-color:rgb(210, 210, 210);
+                background-image: url('images/unibuc.jpg');
+                background-size: cover;
+                /*background-position: center;
+                background-repeat: no-repeat;
+                filter: blur(8px);*/
+                
             }
-            h1.titlu-p-p{
+            /*.backround{
+                filter: blur(8px);
+            } */
+            h1{
+                text-align: center;
                 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color:darkgreen;
+                background-color: black;
+                color:blanchedalmond;
+                border-radius: 10px;
             }
             a {
-                text-decoration: none;
-                color: blueviolet;
+                text-align:center;
+                color:rgb(0, 0, 0);
                 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-                background-color: cyan;
+                background-color: rgb(255, 204, 128);
+                border-radius: 5px;
+            }
+            p{
+                background-color: antiquewhite;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color:rgb(0, 0, 0);
+                border-radius: 10px;
+            }
+            img{
+                width: 200px;
+                border-radius: 10px;
+                float: right;
+                margin: 10px 10px 10px 10px;
             }
         </style>
     </head>
     <body>
-        <h1 class="titlu-p-p">
-            FACULTAS- ajutorul tau in viata
-        </h1>
-        <a href="{% url 'facultatiromania' %}"> Vreau la facultate in Romania!</a>
+        <div>
+            <img class="logo" src="images/facultas.jpg" alt="Cannot display image :(">
+        </div>
+
+        <div>
+            <h1 class="titlu-p-p">FACULTAS- ajutorul tau in studentie</h1>
+
+        <a href="facultati.romania.html"> Vreau la facultate in Romania!</a>
+
         <p>
-            Facultas te ajuta sa explorezi facultatie de prestigiu din fiecare oras, si prin intermediu unui chetionar,
+            Facultas te ajuta sa explorezi facultatile de prestigiu din fiecare oras, si prin intermediul unui chestionar,
             iti sugereaza cea mai buna optiune pentru tine. Incearca si tu Facultas GRATUIT.
         </p>
-        <a href="{% url 'cvmeniu' %}">Vreau un CV de succes!</a>
+
+        <a href="cv.de.succes.html">Vreau un CV de succes!</a>
+
         <p>
             Facultas iti ofera o analiza gratuita a CV-ului tau existent si te poate ajuta sa-l imbunatatesti pentru cererile angajatorului.
         </p>
-        <a href="{% url 'bibliografie' %}">Cine suntem noi?</a>
+
+        <a href="bibliografie.html">Cine suntem noi?</a>
+
         <p>
-            Realizat de echipa Tea Team din cadrul DB technology group.
+            Realizat de echipa Tea Team din cadrul DB Technology Group.
         </p>
+        </div>
     </body>
 </html>
