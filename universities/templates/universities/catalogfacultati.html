@@ -7,7 +7,7 @@
         <h1>Lista facultati</h1>
         {%for facultate in facultati %}
         <li>
-            {{facultate.nume}} cu rating {{facultate.rating}}
+            <a href = "{% url 'detaliifacultate' facultate.id %}"> {{ facultate.nume }}</a>
         </li>
         {% endfor %}
         <br>
