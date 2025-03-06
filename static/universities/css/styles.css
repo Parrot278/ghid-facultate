@@ -1,0 +1,71 @@
+/* Header styling */
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    height: 60px; 
+    width: auto; 
+}
+
+.titlu {
+    font-size: 32px; 
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px; 
+}
+
+/* Typography */
+h1 {
+    font-size: 24px; 
+    font-family: 'Georgia', serif; 
+    color: #444; 
+    margin-top: 30px; 
+    margin-bottom: 20px; 
+}
+
+p {
+    font-size: 16px; 
+    font-family: 'Arial', sans-serif; 
+    color: #666; 
+    line-height: 1.6; 
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    width: 200px; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    color: #fff; 
+    background-color: #007BFF; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    text-align: center; 
+}
+
+.button:hover {
+    background-color: #0056b3; 
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 10px; 
+}
+
+.link-button {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    color: #007BFF; 
+    text-decoration: none; 
+    cursor: pointer; 
+}
