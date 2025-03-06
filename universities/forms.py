@@ -7,8 +7,8 @@ MATERIE_PREFERATA =(
 )
 
 class Chestionar(forms.Form):
-    materie_preferata = forms.ChoiceField(
+    materie_preferata = forms.MultipleChoiceField(
         label = "Ce materie îți place?",
         choices = MATERIE_PREFERATA,
-        widget = forms.MultipleChoiceField,
+        widget = forms.RadioSelect,
     )

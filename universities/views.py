@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .forms import Chestionar
 from .models import Facultate
 
@@ -20,6 +19,10 @@ def cv_meniu(request):
 
 def bibliografie(request):
     return render(request, "universities/bibliografie.html")
+
+def detalii_facultate(request, facultate_id):
+    facultate = get_object_or_404(Facultate, id = facultate_id)
+    return render(request, "universities/detaliifacultate.html"), {"facultate": facultate}
 
 def chestionar(request):
     if request.method == "POST":
