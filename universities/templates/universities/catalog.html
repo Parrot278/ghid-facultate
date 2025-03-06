@@ -79,11 +79,15 @@
 
     <h1>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</h1>
     <p>
-        <br> 
-        <div class="button-container">
-        <a href="politehnica.html" class="button">Politehnica</a>
-        <a href="ase.html" class="button2">ASE</a>
-        </div>
+        {%for facultate in facultati %}
+        <li>
+            <a href = "{% url 'detaliifacultate' facultate.id %}"> {{ facultate.nume }}</a>
+        </li>
+        {% endfor %}
+        <br>
+        <a href="{% url 'facultatiromania' %}">
+            <button>Inapoi la meniul precedent</button>
+        </a>
     </p>
 </body>
 </html>
