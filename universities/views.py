@@ -37,7 +37,7 @@ def chestionar(request):
                 "materie": materie,
                 "facultati": rezultate_facultati
             })
-        else:
-            form = Chestionar()
+    else:
+        form = Chestionar()
     
     return render(request, "universities/chestionar.html", {"form": form})

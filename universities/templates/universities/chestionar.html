@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-
-    </head>
     <body>
         <form method="POST"> 
             {% csrf_token %} 
-            {{ form.as_p }} 
-            <input type="submit" value="Submit"> 
+            <div class = "intrebare">
+                <label>{{ form.materia_preferata.label }}</label>
+                {{form.materia_preferata}}
+            </div>
+            <input type="submit" value="Trimite"> 
         </form> 
+
+
         <a href="{% url 'facultatiromania' %}">
             <button>Inapoi la meniul precedent</button>
         </a>
