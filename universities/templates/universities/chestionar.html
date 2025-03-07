@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Facultas - Chestionar</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+    </head>
     <body>
         <form method="POST"> 
             {% csrf_token %} 
-            <div class = "intrebare">
-                <label>{{ form.materia_preferata.label }}</label>
-                {{form.materia_preferata}}
-            </div>
+            {{ form.as_p }} 
             <input type="submit" value="Trimite"> 
         </form> 
 

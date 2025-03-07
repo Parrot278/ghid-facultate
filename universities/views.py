@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.db import connection
 from .forms import Chestionar
 from .models import Facultate
 
@@ -30,12 +31,24 @@ def chestionar(request):
         if form.is_valid():
             materie = form.cleaned_data["materie_preferata"]
 
-            rezultate_facultati = Facultate.objects.filter(
-                materie__in = Facultate.materii
-            )
-            return render(request, "universities/rezultate_chestionar.html", {
+            with connection.cursor() as cursor:
+                placeholders = ', '.join(['%s'] * len(materie))
+                query = f"""
+                    SELECT * FROM universities_facultate WHERE id IN (
+                        SELECT DISTINCT facultate_id FROM universities_facultate_programe WHERE program_id IN (
+                            SELECT program_id FROM universities_program_materii 
+                            WHERE materie_id IN (SELECT id FROM universities_materie WHERE nume IN ({placeholders}))
+                        )
+                    )
+                """
+                cursor.execute(query, materie)
+                rez = cursor.fetchall()
+
+                
+            
+            return render(request, "universities/rezultatechestionar.html", {
                 "materie": materie,
-                "facultati": rezultate_facultati
+                "rezultate": rez,
             })
     else:
         form = Chestionar()

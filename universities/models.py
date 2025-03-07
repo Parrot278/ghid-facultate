@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 class Materie(models.Model):
@@ -9,13 +8,23 @@ class Materie(models.Model):
     class Meta:
         verbose_name_plural = "materii"
 
+class Program(models.Model):
+    nume = models.CharField(max_length = 100)
+    tip = models.CharField(max_length = 100)
+    materii = models.ManyToManyField(Materie)
+
+    def __str__(self):
+        return self.nume
+    class Meta:
+        verbose_name_plural = "programe"
+
 class Facultate(models.Model):
     nume = models.CharField(max_length = 255)
     descriere = models.TextField()
     rating = models.DecimalField(max_digits = 3, decimal_places=1, default= 0.0)
     oameni_pe_loc = models.DecimalField(max_digits = 3, decimal_places=1, default= 0.0)
     locatie = models.CharField(max_length = 255)
-    materii = models.ManyToManyField(Materie)
+    programe = models.ManyToManyField(Program)
     
     def __str__(self):
         return self.nume
