@@ -19,6 +19,12 @@ header {
     margin-left: 10px; 
 }
 
+/* Images */
+.pagina-cu-imagine {
+    background-image: url("../images/unibuc.jpg");  
+    background-size: cover;
+}
+
 /* Typography */
 h1 {
     font-size: 24px; 
