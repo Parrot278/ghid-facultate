@@ -1,79 +1,60 @@
-/* Header styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
 header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
 }
 
 .logo {
-    height: 60px;
-    width: auto;
-    max-width: 100%;
-    display: block;
+    width: 100px;
+    height: auto;
 }
 
-.titlu {
-    font-size: 32px; 
-    font-weight: bold;
-    color: #333;
-    margin-left: 10px; 
-}
-
-/* Images */
-.pagina-cu-imagine {
-    background-image: url("../images/unibuc.jpg");  
-    background-size: cover;
-}
-
-/* Typography */
-h1 {
-    font-size: 24px; 
-    font-family: 'Georgia', serif; 
-    color: #444; 
-    margin-top: 30px; 
-    margin-bottom: 20px; 
-}
-
-p {
-    font-size: 16px; 
-    font-family: 'Arial', sans-serif; 
-    color: #666; 
-    line-height: 1.6; 
-}
-
-/* Buttons */
-.button {
-    display: inline-block;
-    width: 200px; 
-    padding: 10px 20px; 
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-    color: #fff; 
-    background-color: blue; 
-    border: none; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    cursor: pointer; 
-    text-align: center; 
-}
-
-.button:hover {
-    background-color: #0056b3; 
-}
-
-.button-container {
+.grid-container {
     display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-    gap: 10px; 
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 5rem;
 }
 
-.link-button {
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-    color: #007BFF; 
-    text-decoration: none; 
-    cursor: pointer; 
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 230px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.card a {
+    margin-top: auto;
+    font-size: 17pt;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+.card a:hover{text-decoration: underline;}
+
+.card:hover {
+    transform: scale(1.1);
 }

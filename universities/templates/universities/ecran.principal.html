@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Facultas - pagina principala</title>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Facultas - pagina principala</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
         <header>
-                <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-                <h1 class="titlu-p-p">FACULTAS- ajutorul tau in studentie</h1>
+            <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+            <h1>FACULTAS - Ajutorul tău în studenție</h1>
         </header>
-        
-        <div>
-            
-        <a href="{% url 'facultatiromania' %}"> Vreau la facultate in Romania!</a>
 
-        <p>
-            Facultas te ajuta sa explorezi facultatile de prestigiu din fiecare oras, si prin intermediul unui chestionar,
-            iti sugereaza cea mai buna optiune pentru tine. Incearca si tu Facultas GRATUIT.
-        </p>
+        <div class="grid-container">
+            <div class="card">
+                <h2>Vrei la o facultate în Romania?</h2>
+                <p>Găsește cea mai buna optiune pentru tine.</p>
+                <a href="{% url 'facultatiromania' %}">Află mai multe</a>
+            </div>
 
-        <a href="{% url 'cvmeniu' %}">Vreau un CV de succes!</a>
+            <div class="card">
+                <h2>Vreau un CV de succes!</h2>
+                <p>Analizăm CV-ul tău și te ajutăm să-l îmbunătățești pentru angajatori.</p>
+                <a href="{% url 'cvmeniu' %}">Îmbunătățește CV-ul</a>
+            </div>
 
-        <p>
-            Facultas iti ofera o analiza gratuita a CV-ului tau existent si te poate ajuta sa-l imbunatatesti pentru cererile angajatorului.
-        </p>
-
-        <a href="{% url 'bibliografie' %}">Cine suntem noi?</a>
-
-        <p>
-            Realizat de echipa Tea Team din cadrul DB Technology Group.
-        </p>
+            <div class="card">
+                <h2>Despre noi!</h2>
+                <p>Facultas te ajută să explorezi universități, îți oferă consultanță pentru CV și multe altele.</p>
+                <a href="{% url 'bibliografie' %}">Contacteaza-ne!</a>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

@@ -29,26 +29,19 @@ def chestionar(request):
     if request.method == "POST":
         form = Chestionar(request.POST)
         if form.is_valid():
-            materie = form.cleaned_data["materie_preferata"]
+            materii_preferate = form.cleaned_data["materii_preferate"]
+            locatii_preferate = form.cleaned_data["locatii_preferate"]
 
-            with connection.cursor() as cursor:
-                placeholders = ', '.join(['%s'] * len(materie))
-                query = f"""
-                    SELECT * FROM universities_facultate WHERE id IN (
-                        SELECT DISTINCT facultate_id FROM universities_facultate_programe WHERE program_id IN (
-                            SELECT program_id FROM universities_program_materii 
-                            WHERE materie_id IN (SELECT id FROM universities_materie WHERE nume IN ({placeholders}))
-                        )
-                    )
-                """
-                cursor.execute(query, materie)
-                rez = cursor.fetchall()
+            rezultate_facultati = Facultate.objects.all()
+
+            rezultate_facultati = rezultate_facultati.filter(programe__materii__nume__in=materii_preferate).distinct()
+            rezultate_facultati = rezultate_facultati.filter(oras__in=locatii_preferate).distinct()
 
                 
             
             return render(request, "universities/rezultatechestionar.html", {
-                "materie": materie,
-                "rezultate": rez,
+                "materie": materii_preferate,
+                "facultati": rezultate_facultati
             })
     else:
         form = Chestionar()
