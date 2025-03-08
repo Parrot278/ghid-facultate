@@ -1,78 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facultas-Catalog</title>
     <style>
-    .header {
-        display: flex;
-        align-items: center;
-        padding: 20px;
-        background-color: #f8f8f8;
-        border-bottom: 1px solid #ddd;
-    }
-    .body {
-            font-family: Arial, sans-serif; 
-            text-align: left; 
-            margin: 20px; 
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6; 
-        }
-        .bula {
-            background-color: rgb(229, 198, 148); 
-            border: 1px rgb(229, 198, 148); 
-            border-radius: 8px; /* Colțuri rotunjite */
-            padding: 15px; /* Spațiu în interiorul bulei */
-            max-width: 400px; /* Lățime maximă */
-            box-shadow: 0 2px 4px rgb(229, 198, 148); /* Umbră ușoară */
-            margin-left: 0; /* Aliniere la stânga */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
         }
 
-    .logo {
-        max-width: 60px; 
-        height: auto; 
-    }
-    
-    .titlu {
-        font-size: 32px; 
+        .background {
+            background-image: url("backround.jpg"); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(245, 245, 220, 0.8); 
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            height: 50px; 
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 32px; 
         font-weight: bold;
         color: #333;
-        margin-left: 10px; 
-    }
-    
-    .pagina-cu-imagine {
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        position: relative;
-    }
-    .continut {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: rgb(229, 198, 148); 
-        background-color: rgba(0, 0, 0, 0.5); 
-        padding: 20px;
-        border-radius: 10px; }
-     h1 {
-    font-size: 24px; 
+        margin-left: 10px;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px;
+            background-color: rgba(245, 245, 220, 0.6); 
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); 
+            color: #333;
+            text-align: left;
+        }
+
+        .content p {
+            line-height: 1.6;
+            font-size: 16px; 
     font-family: 'Georgia', serif; 
     color: #444; 
     margin-top: 30px; 
     margin-bottom: 20px; 
-}
-
-p {
-    font-size: 16px; 
-    font-family: 'Arial', sans-serif; 
-    color: #666; 
-    line-height: 1.6; 
-}
-.button {
+        }
+        .button {
     display: inline-block;
     width: 200px; 
     padding: 10px 20px; 
@@ -105,25 +99,16 @@ p {
     text-decoration: none; 
     cursor: pointer; 
 }
-</style>
+    </style>
 </head>
 <body>
-    <div class="body">
+    <div class="background"></div>
     <header>
-        <div class="header">
-        <div class="logo">
-            <img src="facultas.jpg">
-        </div>
-        <div class="titlu">
-            Facultas
-        </div>
-    </div>
+        <img src="facultas.jpg" alt="Logo Facultate"> 
+        <h1>Facultas</h1>
     </header>
-    <div class="pagina-cu-imagine">
-        <img src="backround.jpg">
-        <div class="continut">
-            <div class="bula">
-    <h1>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</h1>
+    <div class="content">
+        <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
     <p>
         {%for facultate in facultati %}
         <li>
@@ -135,9 +120,6 @@ p {
             <button>Inapoi la meniul precedent</button>
         </a>
     </p>
-</div>
-</div>
-</div>
-</div>
+    </div>
 </body>
 </html>
