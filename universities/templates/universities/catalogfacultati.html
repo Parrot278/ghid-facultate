@@ -3,35 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facultas - Catalog</title>
-
     {% load static %}
-    <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+    <title>Facultas-Catalog</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background-image: url("backround.jpg"); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(245, 245, 220, 0.8); 
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            height: 50px; 
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 32px; 
+        font-weight: bold;
+        color: #333;
+        margin-left: 10px;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px;
+            background-color: rgba(245, 245, 220, 0.6); 
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); 
+            color: #333;
+            text-align: left;
+        }
+
+        .content p {
+            line-height: 1.6;
+            font-size: 16px; 
+    font-family: 'Georgia', serif; 
+    color: #444; 
+    margin-top: 30px; 
+    margin-bottom: 20px; 
+        }
+        .button {
+    display: inline-block;
+    width: 200px; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    color: #fff; 
+    background-color: #007BFF; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    text-align: center; 
+}
+
+.button:hover {
+    background-color: #0056b3; 
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 10px; 
+}
+
+.link-button {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    color: #007BFF; 
+    text-decoration: none; 
+    cursor: pointer; 
+}
+    </style>
 </head>
 <body>
-
+    <div class="background"></div>
     <header>
-        <div class="logo">
-            <img src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-        </div>
-        <div class="titlu">
-            Facultas
-        </div>
+        <img class="logo" src="images/facultas.jpg" alt="Cannot display image :(">
+        <h1>Facultas</h1>
     </header>
-
-    <h1>Aceasta este lista cu facultăți. Pentru a afla mai multe informații, dați click pe facultatea care vă interesează:</h1>
-    
-    <ul>
-        {% for facultate in facultati %}
+    <div class="content">
+        <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
+    <p>
+        {%for facultate in facultati %}
         <li>
-            <a href="{% url 'detaliifacultate' facultate.id %}">{{ facultate.nume }}</a>
+            <a href = "{% url 'detaliifacultate' facultate.id %}"> {{ facultate.nume }}</a>
         </li>
         {% endfor %}
-    </ul>
-
-    <br>
-
-    <a href="{% url 'facultatiromania' %}" class="button">Înapoi la meniul precedent</a>
-
+        <br>
+        <a href="{% url 'facultatiromania' %}">
+            <button>Inapoi la meniul precedent</button>
+        </a>
+    </p>
+    </div>
 </body>
 </html>
