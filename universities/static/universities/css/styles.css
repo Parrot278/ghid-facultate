@@ -7,9 +7,11 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-.logo img {
-    height: 60px; 
-    width: auto; 
+.logo {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+    display: block;
 }
 
 .titlu {
