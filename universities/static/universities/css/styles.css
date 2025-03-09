@@ -29,6 +29,10 @@ header {
     height: auto;
 }
 
+.titlu-ep {
+    color:rgb(246, 236, 207);
+}
+
 .grid-container {
     display: flex;
     justify-content: center;
@@ -38,7 +42,7 @@ header {
 }
 
 .card {
-    background: white;
+    background: rgb(246, 236, 207);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -54,7 +58,7 @@ header {
     margin-top: auto;
     font-size: 17pt;
     text-decoration: none;
-    color: #007BFF;
+    color: rgb(0, 128, 0);
     font-weight: bold;
 }
 .card a:hover{text-decoration: underline;}
