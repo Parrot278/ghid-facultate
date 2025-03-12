@@ -7,13 +7,22 @@
     <title> Facultas - pagina principala</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+    <style>
+        body{
+            background-image: url('{%static "universities/images/backround2.jpg"  %}');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <header>
             <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-            <h1>FACULTAS - Ajutorul tău în studenție</h1>
+            <h1 class="titlu-ep">FACULTAS - Ajutorul tău în studenție</h1>
         </header>
 
         <div class="grid-container">

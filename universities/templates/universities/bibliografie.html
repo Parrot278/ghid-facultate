@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
         <title>Bibliografa echipei Tea Team</title>
+        <style>
+            body{
+            background-image: url('{%static "universities/images/backround2.jpg"  %}');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            }
+
+            .bloc-bibliografie{
+                color: rgb(246, 236, 207);
+                font-family: Arial, sans-serif;
+            }
+
+            header{
+                color: rgb(246, 236, 207);
+            }
+        }
+        </style>
     </head>
     <body>
-        <h1>Developerii care au lucrat la acest proiect sunt:</h1>
-        <p>Dumitrescu Iulian</p>
-        <p>Lixandru Sara</p>
-        <p>Sofia Tudose</p>
-        <br>
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-success">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        <a href="{% url 'ecranprincipal' %}">
-            <button>Inapoi la meniul anterior</button>
-        </a>
+        <div class="container">
+            <header>
+                <h1>Developerii care au lucrat la acest proiect sunt:</h1>
+            </header>
+            <div class="bloc-bibliografie">
+                <p>Dumitrescu Iulian</p>
+                <p> Contact: 0745421995 - iulian.dumi2007@gmail.com </p>
+                <p>Lixandru Sara</p>
+                <p> Nr. telefon - email</p>
+                <p>Sofia Tudose</p>
+                <p> Nr. telefon - email</p>
+            </div>
+            <br>
+            <a href="{% url 'ecranprincipal' %}">
+                <button>Inapoi la meniul anterior</button>
+            </a>
+        </div>
     </body>
 </html>

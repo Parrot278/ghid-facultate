@@ -3,27 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Facultăți România</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+        <title>Facultăți România</title>
+        <style>
+            body{
+            background-image: url('{%static "universities/images/backround2.jpg"  %}');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+        </style>
     </head>
     <body class = "pagina-cu-imagine">
-        <header>
-            <div class="logo">
-                <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+        <div class="container">
+            <header>
+                <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+                <h1 class="titlu-ep">Facultati Romania</h1>
+            </header>
+    
+            <div class="grid-container">
+                <div class="card">
+                    <h2>Catalog facultati</h2>
+                    <p>Afla detalii despre fiecare facultate in parte !</p>
+                    <a href="{% url 'catalogfacultati' %}">Află mai multe</a>
+                </div>
+    
+                <div class="card">
+                    <h2>Chestionar</h2>
+                    <p>Raspunde la intrebari pentru a vedea optiunea ideala!</p>
+                    <a href="{% url 'chestionar' %}">Îmbunătățește CV-ul</a>
+                </div>
             </div>
-            <div class="titlu">
-                Facultas
-            </div>
-        </header>
-        <h1>Facultati Romania</h1>
-        <a href="{% url 'catalogfacultati' %}">Catalog</a>
-        <br>
-        <a href="{% url 'chestionar' %}">Chestionar</a>
-        <br>
-        <br>
-        <a href="{% url 'ecranprincipal' %}">
+            <br>
+            <a href="{% url 'ecranprincipal' %}">
             <button>Inapoi la meniul precedent</button>
-        </a>
+            </a>
+        </div>
     </body>
 </html>
