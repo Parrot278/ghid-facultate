@@ -9,6 +9,11 @@
         <p>Lixandru Sara</p>
         <p>Sofia Tudose</p>
         <br>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
         <a href="{% url 'ecranprincipal' %}">
             <button>Inapoi la meniul anterior</button>
         </a>

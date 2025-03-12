@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.db import connection
-from .forms import Chestionar
+from django.contrib import messages
+from .forms import Chestionar, ContactForm
 from .models import Facultate
 
 # Create your views here.
@@ -47,3 +47,15 @@ def chestionar(request):
         form = Chestionar()
     
     return render(request, "universities/chestionar.html", {"form": form})
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            messages.success(request, "Mesajul a fost trimis cu succes!")
+            return render(request, "universities/bibliografie.html")
+    
+    else:
+        form = ContactForm()
+    return render(request, "universities/bibliografie.html", {"form": form})
