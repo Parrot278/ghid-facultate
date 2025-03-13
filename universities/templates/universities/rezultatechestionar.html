@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title>Catalog facultati</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+        <title>rezultate chestionar</title>
+        <style>
+            body{
+            background-image: url('{%static "universities/images/backround2.jpg"  %}');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+        </style>
     </head>
+    
     <body>
         <h1>Lista facultati</h1>
             {% for facultate in facultati %}
