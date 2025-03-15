@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
         <title>Bibliografa echipei Tea Team</title>
         <style>
+
             body{
             background-image: url('{%static "universities/images/backround2.jpg"  %}');
             background-size: cover; 
@@ -15,28 +16,27 @@
             min-height: 100vh;
             }
 
-            .bloc-bibliografie{
-                color: rgb(246, 236, 207);
-                font-family: Arial, sans-serif;
+            .card{
+                color: black;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 600px;
+                height: 400px;
             }
 
-            header{
-                color: rgb(246, 236, 207);
-            }
         </style>
     </head>
     <body>
         <div class="container">
             <header>
-                <h1>Developerii care au lucrat la acest proiect sunt:</h1>
+                <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+                <h1 class="titlu-ep">Developerii care au lucrat la acest proiect sunt:</h1>
             </header>
-            <div class="bloc-bibliografie">
-                <p>Dumitrescu Iulian</p>
-                <p> Contact: 0745421995 - iulian.dumi2007@gmail.com </p>
-                <p>Lixandru Sara</p>
-                <p> Nr. telefon - email</p>
-                <p>Sofia Tudose</p>
-                <p> Nr. telefon - email</p>
+            <div class="grid-container">
+                <div class="card">
+                    <p>Dumitrescu Iulian  Contact: 0745421995 - iulian.dumi2007@gmail.com </p>
+                    <p>Lixandru Sara  Nr. telefon - email</p>
+                    <p>Sofia Tudose  Nr. telefon - email</p>
+                </div>
             </div>
             <br>
             <a href="{% url 'ecranprincipal' %}">

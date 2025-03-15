@@ -6,15 +6,59 @@
         <title>Facultas - Chestionar</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
+        <style>
+            body{
+                background-image: url('{%static "universities/images/backround2.jpg"  %}');
+                background-size: cover; 
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+            }
+
+            /*
+                header{
+                margin-bottom: 0.5px;
+                margin-top: 5px;
+                }    
+            */ 
+
+            .card {
+                background-color: rgb(230, 243, 255);
+                color: black;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 300px;
+                height: 400px;
+            }
+
+            .des-che {
+                margin-top: 0.5px;
+                color: rgb(246, 236, 207);
+                text-align: center;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 19px;
+            }
+
+        </style>
     </head>
     <body>
-        <form method="POST"> 
-            {% csrf_token %} 
-            {{ form.as_p }} 
-            <input type="submit" value="Trimite"> 
-        </form> 
-
-
+        <div class="container">
+            <header>
+                <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+                <h1 class="titlu-ep">Chestionar</h1>
+            </header>
+            <div class="grid-container">
+                <h1 class="des-che">
+                    Raspunde fara ezitare la cele 15 intrebari ce iti vor oferi o perspectiva generala. Poti alege o singura varianta de raspuns. Toate intrebarile sunt obligatorii.
+                </h1>
+                <div class="card">
+                    <form method="POST"> 
+                        {% csrf_token %} 
+                        {{ form.as_p }} 
+                        <input type="submit" value="Trimite"> 
+                    </form> 
+                </div>
+            </div>
+        </div>
         <a href="{% url 'facultatiromania' %}">
             <button>Inapoi la meniul precedent</button>
         </a>
