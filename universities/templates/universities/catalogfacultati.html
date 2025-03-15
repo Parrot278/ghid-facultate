@@ -9,8 +9,10 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            height: 100vh;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
             justify-content: center; 
             align-items: center;
         }
@@ -29,10 +31,10 @@
         }
 
         header {
-            margin-bottom: 20px;
+            background-color: rgba(245, 245, 220, 0.8); 
+            padding: 10px 20px;
             display: flex;
-            flex-direction: column;
-            align-items: left
+            align-items: center;
         }
 
         header img {
@@ -40,7 +42,7 @@
             margin-right: 15px;
         }
 
-        titlu {
+        header h1 {
             font-size: 32px; 
         font-weight: bold;
         color: #333;
@@ -51,14 +53,12 @@
             z-index: 1;
             padding: 20px;
             max-width: 800px;
-            margin: 20px;
             background: rgb(246, 236, 207);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px); 
             color: #333;
             text-align: center;
-            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -114,7 +114,7 @@
     <div class="background"></div>
     <header>
         <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-        <h1 class="titlu">FACULTAS</h1>
+        <h1>Facultas</h1>
     </header>
     <div class="content">
         <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
