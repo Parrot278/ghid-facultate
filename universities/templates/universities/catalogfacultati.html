@@ -6,7 +6,7 @@
     {% load static %}
     <title>Facultas-Catalog</title>
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -32,7 +32,7 @@
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center
+            align-items: left
         }
 
         header img {
@@ -40,7 +40,7 @@
             margin-right: 15px;
         }
 
-        h1 {
+        titlu {
             font-size: 32px; 
         font-weight: bold;
         color: #333;
@@ -114,7 +114,7 @@
     <div class="background"></div>
     <header>
         <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-        <h1>Facultas</h1>
+        <h1 class="titlu">FACULTAS</h1>
     </header>
     <div class="content">
         <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
