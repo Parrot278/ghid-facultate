@@ -36,8 +36,23 @@
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 width: 300px;
                 height: 400px;
-                transform: none;
                 transition: none;
+            }
+
+            .screen {
+                display:none;
+            }
+
+            .card:hover {
+                transform: none;
+            }
+
+            .screen-active {
+                display:block !important;
+            }
+
+            .card-inactive {
+                display:none;
             }
 
             .des-che {
@@ -51,7 +66,7 @@
         </style>
     </head>
     <body>
-        <div>
+        <div class="container">
             <header>
                 <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
                 <h1 class="titlu-ep">Chestionar</h1>
@@ -61,7 +76,7 @@
             </h1>
         </div>
 
-        <div class="screen" id="screen-1">
+        <div class="screen screen-active" id="screen-1">
             <div class="card">
                 <form method="POST"> 
                     {% csrf_token %} 
@@ -73,7 +88,7 @@
             </div>
         </div>
 
-        <div class="screen" id="screen-2">
+        <div class="screen " id="screen-2">
             <div class="card">
                 <form method="POST"> 
                     {% csrf_token %} 
@@ -86,7 +101,7 @@
             </div>
         </div>
 
-        <div class="3si4">
+        <div class="screen " id="screen-3">
             <div class="card">
                 <form method="POST"> 
                     {% csrf_token %} 
@@ -95,7 +110,7 @@
             </div>
         </div>
 
-        <div class="5si6">
+        <div class="screen " id="screen-4">
             <div class="card">
                 <form method="POST"> 
                     {% csrf_token %} 
@@ -104,7 +119,7 @@
             </div>
         </div>
 
-        <div class="7si8">
+        <div class="screen " id="screen-5">
             <div class="card">
                 <form method="POST"> 
                     {% csrf_token %} 
@@ -113,7 +128,7 @@
             </div>
         </div>
 
-        <div class="9si10">
+        <div class="screen " id="screen-6">
             <div class="card">
                 <form method="POST"> 
                     {% csrf_token %} 
@@ -132,15 +147,15 @@
             const totalScreens = 5;
 
             function nextScreen(screenNumber) {
-                document.getElementById('screen-' + screenNumber).classList.remove('active');
-                document.getElementById('screen-' + (screenNumber + 1)).classList.add('active');
+                document.getElementById('screen-' + screenNumber).classList.remove('screen-active');
+                document.getElementById('screen-' + (screenNumber + 1)).classList.add('screen-active');
                 currentScreen = screenNumber + 1;
             }
             
             // Funcție pentru a reveni la ecranul anterior
             function prevScreen(screenNumber) {
-                document.getElementById('screen-' + screenNumber).classList.remove('active');
-                document.getElementById('screen-' + (screenNumber - 1)).classList.add('active');
+                document.getElementById('screen-' + screenNumber).classList.remove('screen-active');
+                document.getElementById('screen-' + (screenNumber - 1)).classList.add('screen-active');
                 currentScreen = screenNumber - 1;
             }
 
