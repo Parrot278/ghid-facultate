@@ -15,13 +15,6 @@
                 min-height: 100vh;
             }
 
-            /*
-                header{
-                margin-bottom: 0.5px;
-                margin-top: 5px;
-                }    
-            */ 
-
             .returnbutton {
                 padding: 12px 24px;
                 font-size: 16px;
@@ -38,11 +31,13 @@
             }
 
             .card {
-                background-color: rgb(230, 243, 255);
+                background-color:rgb(246, 236, 207);
                 color: black;
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 width: 300px;
                 height: 400px;
+                transform: none;
+                transition: none;
             }
 
             .des-che {
@@ -56,26 +51,106 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <div>
             <header>
                 <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
                 <h1 class="titlu-ep">Chestionar</h1>
             </header>
-            <div class="grid-container">
-                <h1 class="des-che">
-                    Raspunde fara ezitare la cele 15 intrebari ce iti vor oferi o perspectiva generala. Poti alege o singura varianta de raspuns. Toate intrebarile sunt obligatorii.
-                </h1>
-                <div class="card">
-                    <form method="POST"> 
-                        {% csrf_token %} 
-                        {{ form.as_p }} 
-                        <input type="submit" value="Trimite"> 
-                    </form> 
-                </div>
+            <h1 class="des-che">
+                Raspunde fara ezitare la cele 15 intrebari ce iti vor oferi o perspectiva generala. Poti alege o singura varianta de raspuns. Toate intrebarile sunt obligatorii.
+            </h1>
+        </div>
+
+        <div class="screen" id="screen-1">
+            <div class="card">
+                <form method="POST"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }} 
+                </form> 
+            </div>
+            <div class="navigation">
+                <button class="returnbutton" onclick="nextScreen(2)">Înainte</button>
             </div>
         </div>
+
+        <div class="screen" id="screen-2">
+            <div class="card">
+                <form method="POST"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }}  
+                </form> 
+            </div>
+            <div class="navigation">
+                <button class="returnbutton  onclick="prevScreen(1)">Înapoi</button>
+                <button class="returnbutton  onclick="nextScreen(3)">Înainte</button>
+            </div>
+        </div>
+
+        <div class="3si4">
+            <div class="card">
+                <form method="POST"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }} 
+                </form> 
+            </div>
+        </div>
+
+        <div class="5si6">
+            <div class="card">
+                <form method="POST"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }}  
+                </form> 
+            </div>
+        </div>
+
+        <div class="7si8">
+            <div class="card">
+                <form method="POST"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }} 
+                </form> 
+            </div>
+        </div>
+
+        <div class="9si10">
+            <div class="card">
+                <form method="POST"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }} 
+                    <input type="submit" value="Trimite"> 
+                </form> 
+            </div>
+        </div>
+
         <a href="{% url 'facultatiromania' %}">
             <button class="returnbutton">Inapoi la meniul precedent</button>
         </a>
+
+        <script>
+            let currentScreen = 1;
+            const totalScreens = 5;
+
+            function nextScreen(screenNumber) {
+                document.getElementById('screen-' + screenNumber).classList.remove('active');
+                document.getElementById('screen-' + (screenNumber + 1)).classList.add('active');
+                currentScreen = screenNumber + 1;
+            }
+            
+            // Funcție pentru a reveni la ecranul anterior
+            function prevScreen(screenNumber) {
+                document.getElementById('screen-' + screenNumber).classList.remove('active');
+                document.getElementById('screen-' + (screenNumber - 1)).classList.add('active');
+                currentScreen = screenNumber - 1;
+            }
+
+            function finishQuiz() {
+            // Ascunde toate ecranele
+            for (let i = 1; i <= totalScreens; i++) {
+                document.getElementById('screen-' + i).classList.remove('active');
+            }
+            }   
+        </script>
+
     </body>
 </html>
