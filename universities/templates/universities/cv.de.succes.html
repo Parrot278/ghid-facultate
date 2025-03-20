@@ -11,13 +11,28 @@
             background-position: center;
             background-repeat: no-repeat;
             min-height: 100vh;
+
+            .returnbutton {
+                padding: 12px 24px;
+                font-size: 16px;
+                color: white;
+                background-color: rgb(0, 128, 0);
+                border-color: black;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .returnbutton:hover {
+                transform: scale(1.1);
+            }
         }
         </style>
     </head>
     <body>
         <p>Under construction</p>
         <a href="{% url 'ecranprincipal' %}">
-            <button>Inapoi la meniul precedent</button>
+            <button class="returnbutton">Inapoi la meniul precedent</button>
         </a>
         
     </body>
