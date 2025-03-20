@@ -124,8 +124,18 @@ CAMIN_NECESAR =(
     ("nu_necesar", "Nu, îmi pot găsi singur cazare")
 )
 
+
 class Chestionar(forms.Form):
 
+    stii_domeniul = forms.ChoiceField(
+        label = "1.	Stii sigur in ce domeniu doresti sa studiezi? Daca nu esti hotarat, te putem ajuta prin cateva intrebari!",
+        choices = [
+            ("da", "Da"),
+            ("nu", "NU"),
+        ],
+        widget = forms.CheckboxInput,
+    )
+    
     pasiuni = forms.MultipleChoiceField(
         label = "Ce pasiuni ai?",
         choices = PASIUNI,
@@ -135,12 +145,6 @@ class Chestionar(forms.Form):
     materii_preferate = forms.MultipleChoiceField(
         label = "Ce materie îți place?",
         choices = MATERIE_PREFERATA,
-        widget = forms.CheckboxSelectMultiple,
-    )
-
-    skilluri = forms.MultipleChoiceField(
-        label = "Ce skilluri ai?",
-        choices = SKILLS,
         widget = forms.CheckboxSelectMultiple,
     )
 

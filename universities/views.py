@@ -34,8 +34,24 @@ def chestionar(request):
 
             rezultate_facultati = Facultate.objects.all()
 
+            #1 Stii domeniul
+
+            #2
+            
+            #3
             rezultate_facultati = rezultate_facultati.filter(programe__materii__nume__in=materii_preferate).distinct()
+            #4
+            #5
+            #6
+            #7
+            #8
+            #9
             rezultate_facultati = rezultate_facultati.filter(oras__in=locatii_preferate).distinct()
+            #10
+            #11
+            #12
+            
+            
 
             
             return render(request, "universities/rezultatechestionar.html", {
