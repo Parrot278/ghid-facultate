@@ -48,6 +48,13 @@ class ComplexitateDosar(models.Model):
     class Meta:
         verbose_name_plural = "complexitate dosar"
 
+class Pasiune(models.Model):
+    nume = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nume
+    class Meta:
+        verbose_name_plural = "pasiuni"
+
 class Facultate(models.Model):
     nume = models.CharField(max_length = 255)
     descriere = models.TextField()
