@@ -119,12 +119,6 @@ ADMITERE =(
     ("indiferent", "Îmi este indiferent")
 )
 
-CAZARE =(
-    ("camin", "Da"),
-    ("nu", "Nu, am cazare asigurată"),
-    ("chirie", "Îmi voi căuta chirie")
-)
-
 CAMIN_NECESAR =(
     ("necesar", "Da"),
     ("nu_necesar", "Nu, îmi pot găsi singur cazare")
@@ -144,21 +138,72 @@ class Chestionar(forms.Form):
         widget = forms.CheckboxSelectMultiple,
     )
 
-    materii_preferate = forms.MultipleChoiceField(
+    skilluri = forms.MultipleChoiceField(
         label = "Ce skilluri ai?",
         choices = SKILLS,
         widget = forms.CheckboxSelectMultiple,
     )
 
+    skilluri = forms.MultipleChoiceField(
+        label = "Ce skilluri consideri că ai?",
+        choices= SKILLS,
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    timp_pregatire = forms.MultipleChoiceField(
+        label = "Cât timp ești dispus să aloci pregătirii pentru facultate?",
+        choices= TIMP_PREGATIRE,
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    dosar = forms.MultipleChoiceField(
+        label = "Ai un dosar bine realizat?",
+        choices= DOSAR,
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    olimpiade = forms.MultipleChoiceField(
+        label = "Ai participat la concursuri școlare/olimpiade?",
+        choices= OLIMPIADE,
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    domenii = forms.MultipleChoiceField(
+        label = "În ce domeniu dorești să studiezi?",
+        choices= DOMENII,
+        widget=forms.CheckboxSelectMultiple
+    )
+
     locatii_preferate = forms.MultipleChoiceField(
-        label = "În ce orașe vrei să studiezi?",
+        label = "În ce orașe ți-ai dori să studiezi?",
         choices= LOCATIE_PREFERATA,
         widget=forms.CheckboxSelectMultiple
     )
 
+    buget = forms.MultipleChoiceField(
+        label = "Bugetul alocat pentru taxa de școlarizare?",
+        choices= BUGET,
+        widget=forms.CheckboxSelectMultiple
+    )
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.CharField(validators=[EmailValidator()])
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
+    admitere = forms.MultipleChoiceField(
+        label = "Dorești o facultate cu admitere pe baza de dosar sau examen?",
+        choices= ADMITERE,
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    camin_necesar = forms.ChoiceField(
+        label="Este necesar ca facultatea să aibă cămin propriu?",
+        choices= CAMIN_NECESAR,
+        widget=forms.CheckboxInput,
+    )
+
+
+
+
+
+# class ContactForm(forms.Form):
+#     name = forms.CharField(max_length=100)
+#     email = forms.CharField(validators=[EmailValidator()])
+#     subject = forms.CharField(max_length=100)
+#     message = forms.CharField(widget=forms.Textarea)
