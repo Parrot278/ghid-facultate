@@ -32,7 +32,21 @@ class Skill(models.Model):
     def __str__(self):
         return self.nume
     class Meta:
-        verbose_name_plural = "domenii"
+        verbose_name_plural = "skills"
+
+class TimpNecesar(models.Model):
+    nume = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nume
+    class Meta:
+        verbose_name_plural = "timp necesar"
+
+class ComplexitateDosar(models.Model):
+    nume = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nume
+    class Meta:
+        verbose_name_plural = "complexitate dosar"
 
 class Facultate(models.Model):
     nume = models.CharField(max_length = 255)
@@ -43,11 +57,15 @@ class Facultate(models.Model):
     oras = models.CharField(max_length = 200, blank=True)
     buget_taxa = models.DecimalField(max_digits = 6, decimal_places=0, default = 0, blank = True)
     buget_camin = models.DecimalField(max_digits = 6, decimal_places=0, default = 0, blank = True)
+    cu_camin = models.BooleanField(default = False)
+    cu_admitere = models.BooleanField(default = False)
 
 
     programe = models.ManyToManyField(Program, blank=True)
     domenii = models.ManyToManyField(Domeniu, blank=True)
     skilluri = models.ManyToManyField(Skill, blank=True)
+    timp_necesar = models.ManyToManyField(TimpNecesar, blank = True)
+    complexitate_dosar = models.ManyToManyField(ComplexitateDosar, blank = True)
     
     def __str__(self):
         return self.nume
