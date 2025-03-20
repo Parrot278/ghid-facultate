@@ -67,9 +67,67 @@ DOSAR =(
     ("nu", "Nu am un dosar"),
 )
 
+OLIMPIADE =(
+    ("scoala", "Etapa pe școală"), ("municipiu", "Etapa pe municipiu"),
+    ("judeteana", "Etapa județeană"),
+    ("nationala", "Etapa națională"),
+    ("internationala", "Etapa internațională"),
+    ("altfel", "Etapele sunt clasificate altfel"),
+    ("nu", "Nu am participat"),
+)
+
+DOMENII =(
+    ("arhitectura", "Arhitectură, urbanism, design interior"),
+    ("informatica", "Informatică, programare"),
+    ("matematica", "Matematică"),
+    ("medicina", "Medicină"),
+    ("drept", "Drept"),
+    ("psihologie", "Psihologie"),
+    ("economice", "Economie și Finanțe"),
+    ("marketing", "Marketing"),
+    ("teatru", "Teatru, actorie, cinematografie"),
+    ("stiinte_politice", "Științe politice"),
+    ("sociologie", "Sociologie"),
+    ("aerospatiale", "Aero-spațiale"),
+    ("turism", "Turism, hospitality"),
+)
+
+
 LOCATIE_PREFERATA =(
     ("Bucuresti", "București"),
-    ("Cluj", "Cluj"),
+    ("Cluj", "Cluj-Napoca"),
+    ("Iasi", "Iași"),
+    ("Timisoara", "Timișoara"),
+    ("Constanta", "Constanța"),
+    ("Sibiu", "Sibiu"),
+    ("Brasov", "Brașov"),
+    ("Oradea", "Oradea"),
+)
+
+BUGET =(
+    ("sub_1000", "Sub 1000 euro"),
+    ("1000_2000", "1000-2000 euro"),
+    ("3000_4000", "3000-4000 euro"),
+    ("5000_6000", "5000-6000 euro"),
+    ("7000_8000", "7000-8000 euro"),
+    ("10000_plus", "10.000+ euro"),
+)
+
+ADMITERE =(
+    ("dosar", "Dosar"),
+    ("examen", "Examen"),
+    ("indiferent", "Îmi este indiferent")
+)
+
+CAZARE =(
+    ("camin", "Da"),
+    ("nu", "Nu, am cazare asigurată"),
+    ("chirie", "Îmi voi căuta chirie")
+)
+
+CAMIN_NECESAR =(
+    ("necesar", "Da"),
+    ("nu_necesar", "Nu, îmi pot găsi singur cazare")
 )
 
 class Chestionar(forms.Form):
