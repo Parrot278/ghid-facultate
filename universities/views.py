@@ -37,7 +37,6 @@ def chestionar(request):
             rezultate_facultati = rezultate_facultati.filter(programe__materii__nume__in=materii_preferate).distinct()
             rezultate_facultati = rezultate_facultati.filter(oras__in=locatii_preferate).distinct()
 
-                
             
             return render(request, "universities/rezultatechestionar.html", {
                 "materie": materii_preferate,

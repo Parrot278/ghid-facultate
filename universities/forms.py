@@ -202,8 +202,8 @@ class Chestionar(forms.Form):
 
 
 
-# class ContactForm(forms.Form):
-#     name = forms.CharField(max_length=100)
-#     email = forms.CharField(validators=[EmailValidator()])
-#     subject = forms.CharField(max_length=100)
-#     message = forms.CharField(widget=forms.Textarea)
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.CharField(validators=[EmailValidator()])
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
