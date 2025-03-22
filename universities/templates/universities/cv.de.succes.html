@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% load static %}
+        <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
         <style>
             body{
             background-image: url('{%static "universities/images/backround2.jpg"  %}');
@@ -23,6 +24,11 @@
                 transition: transform 0.3s ease-in-out;
             }
 
+            .card a{
+                color: blueviolet;
+                
+            }
+
             .returnbutton:hover {
                 transform: scale(1.1);
             }
@@ -30,10 +36,32 @@
         </style>
     </head>
     <body>
-        <p>Under construction</p>
-        <a href="{% url 'ecranprincipal' %}">
-            <button class="returnbutton">Inapoi la meniul precedent</button>
-        </a>
-        
+        <div class="container">
+            <header>
+                <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+                <h1 class="titlu-ep">CV de succes</h1>
+            </header>
+    
+            
+                <div class="card" style="margin-bottom: 20px; width: 500px;">
+                    <h2>AI tool Gratuit</h2>
+                    <p>Momentan, echipa noastra lucreaza la un tool de inteligenta artificiala care iti poate analiza CV-ul pentru a-i oferi un scor de eficienta si oferi sugestii.</p>
+                    <p style="color: red; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 27px;">Fii pe faza!</p>
+                </div>
+                
+                <div class="card" style="width: 500px; height: 300px;">
+                    <h2>Materiale pentru optimizare</h2>
+                    <p>Intre timp, echipa naostra a pregatit cateva videclipuri sugestive care te pot ajuta sa iti avantajezi CV-ul, in functie de unde doresti sa aplici.</p>
+                    <a href="https://youtu.be/rvKNhhhzkP8?si=hp3z5NsyqJ2v_kLn">Youtube - Don Georgevich</a>
+                    <a href="https://youtu.be/pjqi_M3SPwY?si=Q57sod3QxMpDdO3M">Youtube - Jeff Su</a>
+                    <a href="https://youtu.be/R3abknwWX7k?si=2vFcv3uNJNTcgRms">Youtube - A life after layoff</a>
+                    <a href="https://youtu.be/_fP43gcBywU?si=ZBhACzvTHvUHLg8v">Youtube - Standout CV</a>
+                </div>
+            
+            <br>
+            <a href="{% url 'ecranprincipal' %}">
+            <button class="returnbutton">Inapoi la meniul anterior</button>
+            </a>
+        </div>
     </body>
 </html>
