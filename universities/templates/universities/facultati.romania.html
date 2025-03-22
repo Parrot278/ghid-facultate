@@ -13,10 +13,25 @@
             background-position: center;
             background-repeat: no-repeat;
             min-height: 100vh;
+
+            .returnbutton {
+                padding: 12px 24px;
+                font-size: 16px;
+                color: white;
+                background-color: rgb(0, 128, 0);
+                border-color: black;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .returnbutton:hover {
+                transform: scale(1.1);
+            }
         }
         </style>
     </head>
-    <body class = "pagina-cu-imagine">
+    <body>
         <div class="container">
             <header>
                 <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
@@ -38,7 +53,7 @@
             </div>
             <br>
             <a href="{% url 'ecranprincipal' %}">
-            <button>Inapoi la meniul precedent</button>
+            <button class="returnbutton">Inapoi la meniul anterior</button>
             </a>
         </div>
     </body>

@@ -65,6 +65,21 @@
             align-items: center;
         }
 
+        .returnbutton {
+                padding: 12px 24px;
+                font-size: 16px;
+                color: white;
+                background-color: rgb(0, 128, 0);
+                border-color: black;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+
+        .returnbutton:hover {
+                transform: scale(1.1);
+        }
+
         .content p {
             line-height: 1.6;
             font-family: Arial, sans-serif; 
@@ -127,7 +142,7 @@
         {% endfor %}
         <br>
         <a href="{% url 'facultatiromania' %}">
-            <button>Inapoi la meniul precedent</button>
+            <button class="returnbutton">Inapoi la meniul precedent</button>
         </a>
     </p>
     </div>
