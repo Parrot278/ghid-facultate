@@ -13,6 +13,33 @@
             background-repeat: no-repeat;
             min-height: 100vh;
 
+            .cardd{
+            background: rgb(246, 236, 207);
+            padding: 12px 24px;
+            border-color: black;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            height: 230px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .cardd:hover {
+                transform: scale(1.1);
+            }   
+
+            .card {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                transition: none;
+            }
+
+            .card:hover {
+                transform: none;
+            }
+
             .returnbutton {
                 padding: 12px 24px;
                 font-size: 16px;
@@ -41,33 +68,46 @@
                 <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
                 <h1 class="titlu-ep">CV de succes</h1>
             </header>
-    
             
-                <div class="card" style="margin-bottom: 20px; width: 500px;">
+            <div class="grid-container">
+                <div class="cardd" style="margin-bottom: 20px; width: 500px;">
                     <h2>AI tool Gratuit</h2>
                     <p>Momentan, echipa noastra lucreaza la un tool de inteligenta artificiala care iti poate analiza CV-ul pentru a-i oferi un scor de eficienta si oferi sugestii.</p>
                     <p style="color: red; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 27px;">Fii pe faza!</p>
                 </div>
+            </div>
+
+            <div class="grid-container">
                 
-                <div class="card" style="width: 500px; height: 300px;">
-                    <h2>Materiale pentru optimizare</h2>
-                    <p>Intre timp, echipa naostra a pregatit cateva videclipuri sugestive care te pot ajuta sa iti avantajezi CV-ul, in functie de unde doresti sa aplici.</p>
+                <div><h2>Materiale pentru optimizare</h2></div>
+                
+                <div><p>Intre timp, echipa naostra a pregatit cateva videclipuri sugestive care te pot ajuta sa iti avantajezi CV-ul, in functie de unde doresti sa aplici.</p></div>
+                
+                <div class="card" style="width: 300px; height: 300px;">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/rvKNhhhzkP8?si=FDq9XVMHvnPyd6SP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>   
+                    </iframe>
                     <a href="https://youtu.be/rvKNhhhzkP8?si=hp3z5NsyqJ2v_kLn">Youtube - Don Georgevich</a>
+                </div>
+
+                <div class="card" style="width: 300px; height: 300px;">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/pjqi_M3SPwY?si=-U8Sd9cSIXvcMiZ1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                     <a href="https://youtu.be/pjqi_M3SPwY?si=Q57sod3QxMpDdO3M">Youtube - Jeff Su</a>
+                </div>
+
+                <div class="card" style="width: 300px; height: 300px;">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/R3abknwWX7k?si=ueUnrmXkBlI8HXdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                     <a href="https://youtu.be/R3abknwWX7k?si=2vFcv3uNJNTcgRms">Youtube - A life after layoff</a>
+                </div>
+
+                <div class="card" style="width: 300px; height: 300px;">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/_fP43gcBywU?si=iCWJEEMA_Y41R7RS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                     <a href="https://youtu.be/_fP43gcBywU?si=ZBhACzvTHvUHLg8v">Youtube - Standout CV</a>
                 </div>
 
-                <iframe width="300" height="200" src="https://www.youtube.com/embed/rvKNhhhzkP8?si=FDq9XVMHvnPyd6SP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>   
-                </iframe>
-
-                <iframe width="300" height="200" src="https://www.youtube.com/embed/pjqi_M3SPwY?si=-U8Sd9cSIXvcMiZ1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
-
-                <iframe width="300" height="200" src="https://www.youtube.com/embed/R3abknwWX7k?si=ueUnrmXkBlI8HXdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
-
-                <iframe width="300" height="200" src="https://www.youtube.com/embed/_fP43gcBywU?si=iCWJEEMA_Y41R7RS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
             
             <br>
             <a href="{% url 'ecranprincipal' %}">
