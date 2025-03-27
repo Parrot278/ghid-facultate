@@ -12,6 +12,8 @@
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
             min-height: 100vh;
         }
 
@@ -128,24 +130,23 @@
     <div class="container">
         <header>
             <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-            <h1>Catalog facultati</h1>
+            <h1 class="titlu-ep">Catalog facultati</h1>
         </header>
-        <div class="grid-container">
-            <div class="card" style="width: 800px; height: 1050px;">
+        <div class="grid-container" style="margin-bottom: 10px;">
+            <div class="card" style="width: 900px; height: 2000px;">
                 <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
         <p>
             {%for facultate in facultati %}
             <li>
-                <a href = "{% url 'detaliifacultate' facultate.id %}" style="color: black;"> {{ facultate.nume }}</a>
+                <a href = "{% url 'detaliifacultate' facultate.id %}" style="color: black; align-items:justify;"> {{ facultate.nume }}</a>
             </li>
             {% endfor %}
-            <br>
-            <a href="{% url 'facultatiromania' %}">
-                <button class="returnbutton">Inapoi la meniul precedent</button>
-            </a>
         </p>
             </div>
         </div>
+        <a href="{% url 'facultatiromania' %}">
+            <button class="returnbutton">Inapoi la meniul precedent</button>
+        </a>
     </div>
     
 </body>
