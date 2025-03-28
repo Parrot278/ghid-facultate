@@ -104,7 +104,7 @@ LOCATIE_PREFERATA =(
     ("Oradea", "Oradea"),
 )
 
-BUGET =(
+BUGET = (
     ("sub_1000", "Sub 1000 euro"),
     ("1000_2000", "1000-2000 euro"),
     ("3000_4000", "3000-4000 euro"),
@@ -190,16 +190,16 @@ class Chestionar(forms.Form):
         widget=forms.CheckboxSelectMultiple
     )
 
-    admitere = forms.MultipleChoiceField(
+    admitere = forms.ChoiceField(
         label = "Dorești o facultate cu admitere pe baza de dosar sau examen?",
         choices= ADMITERE,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.RadioSelect,
     )
 
     camin_necesar = forms.ChoiceField(
         label="Este necesar ca facultatea să aibă cămin propriu?",
         choices= CAMIN_NECESAR,
-        widget=forms.CheckboxInput,
+        widget=forms.RadioSelect,
     )
 
 

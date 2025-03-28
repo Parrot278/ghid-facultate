@@ -1,5 +1,11 @@
 from django.db import models
 # Create your models here.
+class ParticipareOlimpiade(models.Model):
+    tip_participare = models.CharField(max_length = 150)
+    def __str__(self):
+        return self.tip_participare
+    class Meta:
+        verbose_name_plural = "participari_olimpiade"
 
 class Materie(models.Model):
     nume = models.CharField(max_length = 150)
@@ -39,14 +45,14 @@ class TimpNecesar(models.Model):
     def __str__(self):
         return self.nume
     class Meta:
-        verbose_name_plural = "timp necesar"
+        verbose_name_plural = "timp_necesar"
 
 class ComplexitateDosar(models.Model):
     nume = models.CharField(max_length=100)
     def __str__(self):
         return self.nume
     class Meta:
-        verbose_name_plural = "complexitate dosar"
+        verbose_name_plural = "complexitate_dosar"
 
 class Pasiune(models.Model):
     nume = models.CharField(max_length=100)
@@ -73,6 +79,7 @@ class Facultate(models.Model):
     skilluri = models.ManyToManyField(Skill, blank=True)
     timp_necesar = models.ManyToManyField(TimpNecesar, blank = True)
     complexitate_dosar = models.ManyToManyField(ComplexitateDosar, blank = True)
+    participare_olimpiade = models.ManyToManyField(ParticipareOlimpiade, blank = True)
     
     def __str__(self):
         return self.nume
