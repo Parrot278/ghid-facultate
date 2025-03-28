@@ -78,6 +78,13 @@
             </h1>
         </div>
 
+        <form method="POST"> 
+            {% csrf_token %} 
+            {{ form.as_p }} 
+            <input type="submit" value="Trimite"> 
+        </form>
+
+        <!--
         <div class="screen screen-active" id="screen-1">
             <div class="card">
                 <form method="POST"> 
@@ -168,6 +175,6 @@
             }
             }   
         </script>
-
+         -->
     </body>
 </html>
