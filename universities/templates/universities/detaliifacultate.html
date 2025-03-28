@@ -51,6 +51,7 @@
         }
         .content {
             position: relative;
+            margin-top: 10px;
             z-index: 1;
             padding: 20px;
             max-width: 800px;
@@ -126,7 +127,8 @@
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    <div class="container">
+        <div class="background"></div>
     <header>
         <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
         <h1>{{facultate.nume}}</h1>
@@ -135,10 +137,51 @@
         <p>
             {{facultate.descriere}}
         </p>
-        
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.adresa}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.oameni_pe_loc}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.rating}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.oras}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.buget_camin}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.buget_taxa}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.cu_admitere}}
+        </p>
+    </div>
+    <div class="content">
+        <p>
+            {{facultate.cu_camin}}
+        </p>
     </div>
     <a href="{% url 'catalogfacultati' %}">
         <button class="returnbutton">Inapoi la meniul anterior </button>
     </a>
+    </div>
+    
 </body>
 </html>
