@@ -4,66 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
     <title>Facultas-Detalii facultate</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center;
-        }
-
-        .background {
             background-image: url('{%static "universities/images/backround2.jpg"  %}');
-            background-size: cover;
+            background-size: cover; 
             background-position: center;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
         }
 
-        header {
+        .card {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            transition: none;
             display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px; 
-    margin-top: -30px;
-        }
-
-        header img {
-            width: 100px;
-            height: auto;
-        }
-
-        header h1 {
-            font-size: 32px; 
-            font-weight: bold;
-            color:rgb(246, 236, 207);
-            margin-left: 10px;
-        }
-        .content {
-            position: relative;
-            margin-top: 10px;
-            z-index: 1;
-            padding: 20px;
-            max-width: 800px;
-            background: rgb(246, 236, 207);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px); 
-            color: #333;
-            text-align:justify;
-            display: flex;
-            flex-direction: column;
             align-items: flex-start;
+            text-align: justify;
+            font-size: 20px;
+        }
+
+        .card:hover {
+            transform: none;
         }
 
         .returnbutton {
@@ -81,91 +45,54 @@
             transform: scale(1.1);
         }
 
-        .content p {
-            line-height: 1.6;
-            font-family: Arial, sans-serif; 
-            color: #333;
-            margin-top: 30px; 
-            margin-bottom: 20px; 
-            margin-top: auto;
-            font-size: 17pt;
-            text-decoration: none;
-        }
-        .button {
-    display: inline-block;
-    width: 200px; 
-    padding: 10px 20px; 
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-    color: #fff; 
-    color: rgb(0, 128, 0); 
-    border: none; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    cursor: pointer; 
-    text-align: center; 
-}
-
-.button:hover {
-    color: rgb(0, 128, 0); 
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-    gap: 10px; 
-}
-
-.link-button {
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-    color: rgb(0, 128, 0); 
-    text-decoration: none; 
-    cursor: pointer; 
-}
     </style>
 </head>
 <body>
-    <div class="background"></div>
-    <header>
-        <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-        <h1>{{facultate.nume}}</h1>
-    </header>
-    <div class="content">
-        <p>
-            Descriere: {{facultate.descriere}}
-        </p>
-        <p>
-            Adresa : {{facultate.adresa}}
-        </p>
-        <p>
-            Oameni pe loc: {{facultate.oameni_pe_loc}}
-        </p>
-        <p>
-            Rating: {{facultate.rating}}
-        </p>
-        <p>
-            Orasul in care se afla: {{facultate.oras}}
-        </p>
-        <p>
-            Buget necesar pentru acomodarea in camin: {{facultate.buget_camin}} RON
-        </p>
-        <p>
-            Buget necesar pentru partciparea la cursuri: {{facultate.buget_taxa}} RON
-        </p>
-        <p>
-            Este necesara admitere: {{facultate.cu_admitere}}
-        </p>
-        <p>
-            Exista camin dedicat facultatii: {{facultate.cu_camin}}
-        </p>
+    <div class="container">
+        <header>
+            <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+            <h1 class="titlu-ep">{{facultate.nume}}</h1>
+        </header>
+
+        <div class="grid-container">
+            <div class="card" style="width: 800px; height: 700px;">
+                <p>
+                    Descriere: {{facultate.descriere}}
+                </p>
+                <p>
+                    Adresa : {{facultate.adresa}}
+                </p>
+                <p>
+                    Oameni pe loc: {{facultate.oameni_pe_loc}}
+                </p>
+                <p>
+                    Rating: {{facultate.rating}}
+                </p>
+                <p>
+                    Orasul in care se afla: {{facultate.oras}}
+                </p>
+                <p>
+                    Buget necesar pentru acomodarea in camin: {{facultate.buget_camin}} RON
+                </p>
+                <p>
+                    Buget necesar pentru partciparea la cursuri: {{facultate.buget_taxa}} RON
+                </p>
+                <p>
+                    Este necesara admitere: {{facultate.cu_admitere}}
+                </p>
+                <p>
+                    Exista camin dedicat facultatii: {{facultate.cu_camin}}
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <p style="color:  rgb(246, 236, 207); font-size: 12px;">*Facultas nu garanteaza acuratetea maxima a informatiilor transmise</p>
+        </div>
+        
+        <a href="{% url 'catalogfacultati' %}">
+            <button class="returnbutton">Inapoi la meniul anterior </button>
+        </a>
     </div>
-    <div style="color: rgb(246, 236, 207); font-size: 12px;">
-        <p>*Facultas nu garanteaza acuratetea maxima a informatiilor transmise</p>
-    </div>
-    <a href="{% url 'catalogfacultati' %}">
-        <button class="returnbutton">Inapoi la meniul anterior </button>
-    </a>
 </body>
 </html>
