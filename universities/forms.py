@@ -50,11 +50,9 @@ SKILLS =(
 )
 
 TIMP_PREGATIRE =(
-    ("1_2_luni", "1-2 luni"),
-    ("3_6_luni", "3-6 luni"),
-    ("6_12_luni", "6 luni - 1 an"),
-    ("1_2_ani", "1-2 ani"),
-    ("2_plus_ani", "2+ ani"),
+    ("3 ani", "3 ani"),
+    ("4 ani", "4 ani"),
+    ("6 ani", "6 ani"),
 )
 
 DOSAR =(
@@ -68,9 +66,11 @@ DOSAR =(
 )
 
 OLIMPIADE =(
-    ("scoala", "Etapa pe școală"), ("municipiu", "Etapa pe municipiu"),
+    ("scoala", "Etapa pe școală"),
+    ("municipiu", "Etapa pe municipiu"),
     ("judeteana", "Etapa județeană"),
-    ("nationala", "Etapa națională"),
+    ("nationala", "Etapa națională, fără premiu"),
+    ("premiu_nationala", "Etapa națională, cu premiu"),
     ("internationala", "Etapa internațională"),
     ("altfel", "Etapele sunt clasificate altfel"),
     ("nu", "Nu am participat"),
@@ -131,9 +131,9 @@ class Chestionar(forms.Form):
         label = "1.	Stii sigur in ce domeniu doresti sa studiezi? Daca nu esti hotarat, te putem ajuta prin cateva intrebari!",
         choices = [
             ("da", "Da"),
-            ("nu", "NU"),
+            ("nu", "Nu"),
         ],
-        widget = forms.CheckboxInput,
+        widget = forms.RadioSelect,
     )
     
     pasiuni = forms.MultipleChoiceField(
@@ -155,7 +155,7 @@ class Chestionar(forms.Form):
     )
 
     timp_pregatire = forms.MultipleChoiceField(
-        label = "Cât timp ești dispus să aloci pregătirii pentru facultate?",
+        label = "Cât de lungă ai prefera să fie durata studiilor universitare?",
         choices= TIMP_PREGATIRE,
         widget=forms.CheckboxSelectMultiple
     )

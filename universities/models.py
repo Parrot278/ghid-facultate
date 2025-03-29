@@ -73,7 +73,7 @@ class Facultate(models.Model):
     cu_camin = models.BooleanField(default = False)
     cu_admitere = models.BooleanField(default = False)
 
-
+    pasiuni = models.ManyToManyField(Pasiune, blank = True)
     programe = models.ManyToManyField(Program, blank=True)
     domenii = models.ManyToManyField(Domeniu, blank=True)
     skilluri = models.ManyToManyField(Skill, blank=True)
