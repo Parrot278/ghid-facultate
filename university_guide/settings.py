@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # My new app
     'universities.apps.UniversitiesConfig',
+    'feedback',
 ]
 
 MIDDLEWARE = [

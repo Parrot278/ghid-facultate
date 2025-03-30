@@ -1,8 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .forms import Chestionar, ContactForm
 from .models import Facultate
+from .forms import FeedbackForm
+from .models import Feedback
+from django.views.generic import ListView
 
 # Create your views here.
 
@@ -117,3 +120,17 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, "universities/bibliografie.html", {"form": form})
+
+def feedback_form(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you for your feedback!')
+            return redirect('feedback:form')
+    else:
+        form = FeedbackForm()
+    
+    return render(request, 'feedback/form.html', {'form': form})
+
+

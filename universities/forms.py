@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import EmailValidator
+from .models import Feedback
 
 PASIUNI =(
     ("desen", "Desen"),
@@ -206,7 +207,16 @@ class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
 
-
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['name', 'email', 'message', 'rating']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your Feedback', 'rows': 5}),
+            'rating': forms.RadioSelect(attrs={'class': 'rating-input'})
+        }
 
 
 # INTREBARI NEFOLOSITE

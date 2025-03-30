@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 # Create your models here.
 class ParticipareOlimpiade(models.Model):
     tip_participare = models.CharField(max_length = 150)
@@ -86,7 +88,25 @@ class Facultate(models.Model):
     class Meta:
         verbose_name_plural = "facultati"
     
-
-
+class Feedback(models.Model):
+    RATING_CHOICES = (
+        (1, '1 - Poor'),
+        (2, '2 - Below Average'),
+        (3, '3 - Average'),
+        (4, '4 - Good'),
+        (5, '5 - Excellent'),
+    )
+    
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    rating = models.IntegerField(choices=RATING_CHOICES)
+    created_at = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return f"Feedback from {self.name} ({self.rating}/5)"
+    
+    class Meta:
+        ordering = ['-created_at']
 
 
