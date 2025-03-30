@@ -117,7 +117,7 @@ CAMIN_NECESAR =(
 class Chestionar(forms.Form):
 
     stii_domeniul = forms.ChoiceField(
-        label = "1.	Stii sigur in ce domeniu doresti sa studiezi? Daca nu esti hotarat, te putem ajuta prin cateva intrebari!",
+        label = "Știi sigur în ce domeniu dorești să studiezi? Dacă nu ești hotărât, te putem ajuta prin câteva intrebări!",
         choices = [
             ("da", "Da"),
             ("nu", "Nu"),

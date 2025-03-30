@@ -99,7 +99,6 @@ def chestionar(request):
             
             
             return render(request, "universities/rezultatechestionar.html", {
-                "materie": materii_preferate,
                 "facultati": rezultate_facultati
             })
     else:

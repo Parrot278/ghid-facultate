@@ -96,12 +96,12 @@
         <h1 class="titlu-ep">Chestionar</h1>
     </header>
     <h1 class="des-che">
-        Raspunde fara ezitare la cele 15 intrebari ce iti vor oferi o perspectiva generala. Poti alege o singura varianta de raspuns. Toate intrebarile sunt obligatorii.
+        Răspunde fără ezitare la intrebări ce iți vor oferi o perspectivă generală. Poți alege una sau mai multe variante de răspuns. Toate intrebările sunt obligatorii.
     </h1>
 </div>
 
 <div class="form-container">
-    <!-- Alerta pentru eroare -->
+    <!-- Alerta -->
     <div id="alert" class="alert">Te rugăm să selectezi un răspuns înainte de a merge mai departe!</div>
 
     <form method="post">
@@ -140,7 +140,7 @@
             {{ form.domenii }}
         </div>
 
-        <!-- Pagina 5 (întrebarea 8) -->
+        <!-- Pagina 5 (Unde se ajunge cu skip) -->
         <div class="step">
             <p>{{ form.locatii_preferate.label_tag }}</p>
             {{ form.locatii_preferate }}
@@ -173,7 +173,7 @@
         let prevButton = document.getElementById("prev");
         let alertBox = document.getElementById("alert");
 
-        // Function to check if something is selected in the current step
+        // Daca s-a selectat ceva
         function isStepValid(stepIndex) {
             let currentStepElement = steps[stepIndex];
             let selectedRadio = currentStepElement.querySelector('input[type="radio"]:checked');
@@ -193,7 +193,7 @@
         nextButton.addEventListener("click", function () {
             let stiiDomeniul = document.querySelector('input[name="stii_domeniul"]:checked');
 
-            // Check if the current step is valid
+            // Daca e valid
             if (currentStep < steps.length - 1) {
                 if (!isStepValid(currentStep)) {
                     alertBox.classList.add("show");
@@ -203,9 +203,9 @@
                 }
             }
 
-            // Logic to skip to question 8 if "Da" is selected in the first question
+            // Skip la intrebari
             if (currentStep === 0 && stiiDomeniul && stiiDomeniul.value === "da") {
-                currentStep = 4; // Sari la întrebarea 8
+                currentStep = 4;
             } else if (currentStep < steps.length - 1) {
                 currentStep++;
             } else {
@@ -217,7 +217,6 @@
         prevButton.addEventListener("click", function () {
             currentStep--;
             
-            // Avoid going back to skipped steps (question 8)
             if (currentStep < 0) {
                 currentStep = 0;
             }
