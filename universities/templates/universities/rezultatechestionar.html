@@ -29,15 +29,24 @@
     </head>
     
     <body>
-        <h1>Lista facultati</h1>
-            {% for facultate in facultati %}
+        <div class="container">
+            <header>
+                <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+                <h1 class="titlu-ep">Lista facultati compatibile</h1>
+            </header>
+            <div class="grid-container">
+                {% for facultate in facultati %}
                 <li>
                     {{facultate.nume}}
                 </li>
             {% endfor %}
-        <br>
-        <a href="{% url 'facultatiromania' %}">
-            <button class="returnbutton">Inapoi la meniul precedent</button>
-        </a>
+            </div>
+            <br>
+            <a href="{% url 'facultatiromania' %}">
+                <button class="returnbutton">Inapoi la meniul precedent</button>
+            </a>
+        </div>
+        
+        
     </body>
 </html>
