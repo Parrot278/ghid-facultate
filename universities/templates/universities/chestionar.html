@@ -1,63 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Facultas - Chestionar</title>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
-        <style>
-            body{
-                background-image: url('{%static "universities/images/backround2.jpg"  %}');
-                background-size: cover; 
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-attachment: fixed;
-                min-height: 100vh;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultas - Chestionar</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'universities/css/styles.css' %}">
 
-            .returnbutton {
-                padding: 12px 24px;
-                font-size: 16px;
-                color: white;
-                background-color: rgb(0, 128, 0);
-                border-color: black;
-                border-radius: 15px;
-                cursor: pointer;
-                transition: transform 0.3s ease-in-out;
-            }
+    <style>
+        body {
+            background-image: url('{% static "universities/images/backround2.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
 
-            .returnbutton:hover {
-                transform: scale(1.1);
-            }
+        .container {
+            text-align: center;
+        }
 
-            .card {
-                background-color:rgb(246, 236, 207);
-                color: black;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                width: 300px;
-                height: 400px;
-                transition: none;
-            }
-
-            .screen {
-                display:none;
-            }
-
-            .card:hover {
-                transform: none;
-            }
-
-            .screen-active {
-                display:block !important;
-            }
-
-            .card-inactive {
-                display:none;
-            }
-
-            .des-che {
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: rgb(246, 236, 207);
+        }
+        .des-che {
                 margin-top: 0.5px;
                 color: rgb(246, 236, 207);
                 text-align: center;
@@ -65,26 +37,158 @@
                 font-size: 19px;
             }
 
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-                <h1 class="titlu-ep">Chestionar</h1>
-            </header>
-            <h1 class="des-che">
-                Raspunde fara ezitare la cele 15 intrebari ce iti vor oferi o perspectiva generala. Poti alege o singura varianta de raspuns. Toate intrebarile sunt obligatorii.
-            </h1>
+        .step {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            font-size: 16px;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        #prev {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
+        <h1 class="titlu-ep">Chestionar</h1>
+    </header>
+    <h1 class="des-che">
+        Raspunde fara ezitare la cele 15 intrebari ce iti vor oferi o perspectiva generala. Poti alege o singura varianta de raspuns. Toate intrebarile sunt obligatorii.
+    </h1>
+</div>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Pagina 1 -->
+        <div class="step active">
+            <p>{{ form.stii_domeniul.label_tag }}</p>
+            {{ form.stii_domeniul }}
         </div>
 
-        <form method="POST"> 
-            {% csrf_token %} 
-            {{ form.as_p }} 
-            <input type="submit" value="Trimite"> 
-        </form>
+        <!-- Pagina 2 -->
+        <div class="step">
+            <p>{{ form.pasiuni.label_tag }}</p>
+            {{ form.pasiuni }}
 
-        <!--
+            <p>{{ form.materii_preferate.label_tag }}</p>
+            {{ form.materii_preferate }}
+        </div>
+
+        <!-- Pagina 3 -->
+        <div class="step">
+            <p>{{ form.skilluri.label_tag }}</p>
+            {{ form.skilluri }}
+
+            <p>{{ form.timp_pregatire.label_tag }}</p>
+            {{ form.timp_pregatire }}
+        </div>
+
+        <!-- Pagina 4 -->
+        <div class="step">
+            <p>{{ form.dosar.label_tag }}</p>
+            {{ form.dosar }}
+
+            <p>{{ form.domenii.label_tag }}</p>
+            {{ form.domenii }}
+        </div>
+
+        <!-- Pagina 5 (întrebarea 8) -->
+        <div class="step">
+            <p>{{ form.locatii_preferate.label_tag }}</p>
+            {{ form.locatii_preferate }}
+
+            <p>{{ form.buget.label_tag }}</p>
+            {{ form.buget }}
+        </div>
+
+        <!-- Pagina 6 -->
+        <div class="step">
+            <p>{{ form.admitere.label_tag }}</p>
+            {{ form.admitere }}
+
+            <p>{{ form.camin_necesar.label_tag }}</p>
+            {{ form.camin_necesar }}
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="button" id="prev">Înapoi</button>
+            <button type="button" class="button" id="next">Înainte</button>
+        </div>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let currentStep = 0;
+    let steps = document.querySelectorAll(".step");
+    let nextButton = document.getElementById("next");
+    let prevButton = document.getElementById("prev");
+
+    function showStep(index) {
+        steps.forEach((step, i) => {
+            step.classList.toggle("active", i === index);
+        });
+
+        prevButton.style.display = index === 0 ? "none" : "inline-block";
+        nextButton.innerText = index === steps.length - 1 ? "Trimite" : "Înainte";
+    }
+
+    nextButton.addEventListener("click", function () {
+        let stiiDomeniul = document.querySelector('input[name="stii_domeniul"]:checked');
+
+        if (currentStep === 0 && stiiDomeniul && stiiDomeniul.value === "da") {
+            currentStep = 4; // Sari la întrebarea 8
+        } else if (currentStep < steps.length - 1) {
+            currentStep++;
+        } else {
+            document.querySelector("form").submit();
+        }
+        showStep(currentStep);
+    });
+
+    prevButton.addEventListener("click", function () {
+        currentStep--;
+        showStep(currentStep);
+    });
+
+    showStep(currentStep);
+});
+</script>
+
+</body>
+</html>
+
+
+
+<!--
         <div class="screen screen-active" id="screen-1">
             <div class="card">
                 <form method="POST"> 
@@ -176,5 +280,3 @@
             }   
         </script>
          -->
-    </body>
-</html>

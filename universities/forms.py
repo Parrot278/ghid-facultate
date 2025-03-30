@@ -65,17 +65,6 @@ DOSAR =(
     ("nu", "Nu am un dosar"),
 )
 
-OLIMPIADE =(
-    ("scoala", "Etapa pe școală"),
-    ("municipiu", "Etapa pe municipiu"),
-    ("judeteana", "Etapa județeană"),
-    ("nationala", "Etapa națională, fără premiu"),
-    ("premiu_nationala", "Etapa națională, cu premiu"),
-    ("internationala", "Etapa internațională"),
-    ("altfel", "Etapele sunt clasificate altfel"),
-    ("nu", "Nu am participat"),
-)
-
 DOMENII =(
     ("arhitectura", "Arhitectură, urbanism, design interior"),
     ("informatica", "Informatică, programare"),
@@ -166,12 +155,6 @@ class Chestionar(forms.Form):
         widget=forms.CheckboxSelectMultiple
     )
 
-    olimpiade = forms.MultipleChoiceField(
-        label = "Ai participat la concursuri școlare/olimpiade?",
-        choices= OLIMPIADE,
-        widget=forms.CheckboxSelectMultiple
-    )
-
     domenii = forms.MultipleChoiceField(
         label = "În ce domeniu dorești să studiezi?",
         choices= DOMENII,
@@ -211,3 +194,23 @@ class ContactForm(forms.Form):
     email = forms.CharField(validators=[EmailValidator()])
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
+
+
+
+
+# INTREBARI NEFOLOSITE
+# olimpiade = forms.MultipleChoiceField(
+#         label = "Ai participat la concursuri școlare/olimpiade?",
+#         choices= OLIMPIADE,
+#         widget=forms.CheckboxSelectMultiple
+#     )
+# OLIMPIADE =(
+#     ("scoala", "Etapa pe școală"),
+#     ("municipiu", "Etapa pe municipiu"),
+#     ("judeteana", "Etapa județeană"),
+#     ("nationala", "Etapa națională, fără premiu"),
+#     ("premiu_nationala", "Etapa națională, cu premiu"),
+#     ("internationala", "Etapa internațională"),
+#     ("altfel", "Etapele sunt clasificate altfel"),
+#     ("nu", "Nu am participat"),
+# )

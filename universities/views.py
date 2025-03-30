@@ -56,19 +56,15 @@ def chestionar(request):
             dosar = form.cleaned_data["dosar"]
             rezultate_facultati = rezultate_facultati.filter(complexitate_dosar__nume__in = dosar).distinct()
 
-            #7 OLIMPIADE
-            olimpiade = form.cleaned_data["olimpiade"]
-            rezultate_facultati = rezultate_facultati.filter(participare_olimpiade__tip_participare__in = olimpiade).distinct()
-
-            #8 DOMENII
+            #7 DOMENII
             domenii_preferate = form.cleaned_data["domenii"]
             rezultate_facultati = rezultate_facultati.filter(domenii__nume__in = domenii_preferate).distinct()
 
-            #9 LOCATII PREFERATE
+            #8 LOCATII PREFERATE
             locatii_preferate = form.cleaned_data["locatii_preferate"]
             rezultate_facultati = rezultate_facultati.filter(oras__in=locatii_preferate).distinct()
 
-            #10 BUGET
+            #9 BUGET
             bugete_alese = form.cleaned_data["buget"]
             BUGET_MAP = {
                 "sub_1000": 1000,
@@ -87,27 +83,18 @@ def chestionar(request):
                 8000: (7000, 8000),
                 10000: (10000, float("inf")),
             }
-            query_buget = Q()
-            for buget in bugete_alese:
-                if buget in BUGET_MAP:
-                    buget_numeric = BUGET_MAP[buget]
-                    buget_minim, buget_maxim = RANGES_BUGET[buget_numeric]
-                    
-                    if buget_maxim == float("inf"):  
-                        query_buget |= Q(buget_taxa__gte=buget_minim)
-                    else:
-                        query_buget |= Q(buget_taxa__gte=buget_minim, buget_taxa__lte=buget_maxim)
-            
-            rezultate_facultati = rezultate_facultati.filter(query_buget).distinct()
+            buget_maxim = max([BUGET_MAP[buget] for buget in bugete_alese if buget in BUGET_MAP], default=None)
+            if buget_maxim is not None:
+                rezultate_facultati = rezultate_facultati.filter(buget_taxa__lte=buget_maxim).distinct()
 
-            #11 E CU ADMITERE (EXAMEN)
+            #10 E CU ADMITERE (EXAMEN)
             tip_admitere = form.cleaned_data["admitere"]
             if tip_admitere == "dosar":
                 rezultate_facultati = rezultate_facultati.filter(cu_admitere=False).distinct()
             elif tip_admitere == "examen":
                 rezultate_facultati = rezultate_facultati.filter(cu_admitere=True).distinct()
 
-            #12 E CU CAMIN
+            #11 E CU CAMIN
             camin_necesar = form.cleaned_data["camin_necesar"]
             if camin_necesar == "necesar":
                 rezultate_facultati = rezultate_facultati.filter(cu_camin = True).distinct()
