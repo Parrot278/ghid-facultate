@@ -123,66 +123,77 @@ class Chestionar(forms.Form):
             ("nu", "Nu"),
         ],
         widget = forms.RadioSelect,
+        required=True,
     )
     
     pasiuni = forms.MultipleChoiceField(
         label = "Ce pasiuni ai?",
         choices = PASIUNI,
         widget= forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     materii_preferate = forms.MultipleChoiceField(
         label = "Ce materie îți place?",
         choices = MATERIE_PREFERATA,
         widget = forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     skilluri = forms.MultipleChoiceField(
         label = "Ce skilluri consideri că ai?",
         choices= SKILLS,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     timp_pregatire = forms.MultipleChoiceField(
         label = "Cât de lungă ai prefera să fie durata studiilor universitare?",
         choices= TIMP_PREGATIRE,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     dosar = forms.MultipleChoiceField(
         label = "Ai un dosar bine realizat?",
         choices= DOSAR,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     domenii = forms.MultipleChoiceField(
         label = "În ce domeniu dorești să studiezi?",
         choices= DOMENII,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     locatii_preferate = forms.MultipleChoiceField(
         label = "În ce orașe ți-ai dori să studiezi?",
         choices= LOCATIE_PREFERATA,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
     )
 
     buget = forms.MultipleChoiceField(
         label = "Bugetul alocat pentru taxa de școlarizare?",
         choices= BUGET,
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
     )
 
     admitere = forms.ChoiceField(
         label = "Dorești o facultate cu admitere pe baza de dosar sau examen?",
         choices= ADMITERE,
         widget=forms.RadioSelect,
+        required=True,
     )
 
     camin_necesar = forms.ChoiceField(
         label="Este necesar ca facultatea să aibă cămin propriu?",
         choices= CAMIN_NECESAR,
         widget=forms.RadioSelect,
+        required=True,
     )
 
 
