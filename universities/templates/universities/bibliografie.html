@@ -49,6 +49,16 @@
                 transform: scale(1.1);
             }
 
+            #message-container {
+                background-color: #d4edda;
+                color: #155724;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #c3e6cb;
+                border-radius: 5px;
+                text-align: center;
+            }
+
         </style>
     </head>
     <body>
@@ -57,28 +67,36 @@
                 <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
                 <h1 class="titlu-ep"> Contact & Feedback </h1>
             </header>
+            {% if messages %}
+                <div id="message-container">
+                    {% for message in messages %}
+                        <p class="message">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
             <div class="grid-container">
                 <div class="card">
                     <p>Echipa noastra iti ofera urmatoarea adresa de email unde ne poti transmite orice sugestie, recenzie sau cerere!</p>
-                    <p style="font-weight: bold;";">Email: tea.teamlazar@gmail.com </p>
-                    <form>
-                        <p>sau scrie-ne aici</p>
-                        <div class="id">
-                            <input type="text" placeholder="Nume">
-                            <i class="far fa-user"></i>
-                        </div>
-                        <div class="id">
-                            <input type="text" placeholder="Prenume">
-                            <i class="far fa-user"></i>
-                        </div>
-                        <div class="id">
-                            <input type="email" placeholder="Adresa Email">
-                            <i class="far fa-envelope"></i>
-                        </div>
-                        <div class="id">
-                            <textarea name="" id="" cols="20" rows="10" placeholder="Suntem curiosi sa-ti auzim parerea!"></textarea>
-                        </div>
-                        <button class="returnbutton">Trimite</button>
+                    <p style="font-weight: bold;";>Email: tea.teamlazar@gmail.com </p>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <label for="{{ form.name.id_for_label }}">Nume:</label>
+                        {{ form.name }}
+                        <br>
+                        <br>
+                        
+                        <label for="{{ form.email.id_for_label }}">Email:</label>
+                        {{ form.email }}
+                        <br>
+                        <br>
+                        
+                        <label for="{{ form.message.id_for_label }}">Mesaj:</label>
+                        {{ form.message }}
+                        
+                        <button type="submit" class="submit-btn">Trimite</button>
                     </form>
                 </div>
             </div>
@@ -87,5 +105,6 @@
                 <button class="returnbutton">Inapoi la meniul anterior</button>
             </a>
         </div>
+
     </body>
 </html>

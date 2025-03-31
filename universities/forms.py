@@ -1,4 +1,5 @@
 from django import forms
+from django.core.validators import EmailValidator
 
 
 PASIUNI =(
@@ -38,15 +39,16 @@ MATERIE_PREFERATA =(
 )
 
 SKILLS =(
-    ("public_speaking", "Public speaking"),
-    ("leadership", "Leadership"),
+    ("Talent muzical și abilități tehnice excelente", "Talent muzical și abilități tehnice excelente"),
+    ("Capacitate de lucru cu date mari și complexitate mare", "Capacitate de lucru cu date mari și complexitate mare"),
     ("talent_artistic", "Talent artistic: muzică, desen, teatru, etc"),
-    ("lucrez_echipa", "Lucrez bine în echipă"),
-    ("lucrez_singur", "Lucrez bine de unul singur"),
-    ("time_management", "Time management eficient"),
-    ("gestionare_oameni", "Gestionarea oamenilor într-un anumit context"),
-    ("programare", "Mă descurc la programare"),
-    ("design_digital", "Mă pricep la design digital"),
+    ("Abilități de traducere și interpretariat", "Abilități de traducere și interpretariat"),
+    ("Cunoștințe despre mediul digital și social media", "Cunoștințe despre mediul digital și social media"),
+    ("Capacitate de argumentare logică", "Capacitate de argumentare logică"),
+    ("Cunoștințe de economie, finanțe și marketing", "Cunoștințe de economie, finanțe și marketing"),
+    ("Cunoștințe de programare", "Cunoștințe de programare"),
+    ("Lucru sub presiune", "Lucru sub presiune"),
+    ("Abilități de cercetare și laborator", "Abilități de cercetare și laborator"),
 )
 
 TIMP_PREGATIRE =(
@@ -197,7 +199,10 @@ class Chestionar(forms.Form):
     )
 
 
-
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.CharField(validators=[EmailValidator()])
+    message = forms.CharField(widget=forms.Textarea)
 
 # INTREBARI NEFOLOSITE
 # olimpiade = forms.MultipleChoiceField(

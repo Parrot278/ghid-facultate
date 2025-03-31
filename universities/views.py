@@ -1,9 +1,9 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404, redirect
 from django.contrib import messages
-from django.db.models import Q
-from .forms import Chestionar
+from .forms import Chestionar, ContactForm
 from .models import Facultate
 from django.views.generic import ListView
+from django.core.mail import EmailMessage
 
 # Create your views here.
 
@@ -21,7 +21,28 @@ def cv_meniu(request):
     return render(request, "universities/cv.de.succes.html")
 
 def bibliografie(request):
-    return render(request, "universities/bibliografie.html")
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            EmailMessage(
+                'Sugestie de la {}'.format(name),
+                message,
+                'form-response@example.com',
+                ['teateamlazar@gmail.com'],
+                [],
+                reply_to=[email]
+            ).send()
+
+            messages.success(request, "E-mailul a fost trimis cu succes!")
+            return redirect('bibliografie')
+
+    else:
+        form = ContactForm()
+
+    return render(request, "universities/bibliografie.html", {"form": form})
 
 def detalii_facultate(request, facultate_id):
     facultate = get_object_or_404(Facultate, id = facultate_id)
