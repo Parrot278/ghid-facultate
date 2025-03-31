@@ -87,7 +87,7 @@ class Facultate(models.Model):
         return self.nume
     class Meta:
         verbose_name_plural = "facultati"
-    
+   
 class Feedback(models.Model):
     RATING_CHOICES = (
         (1, '1 - Poor'),

@@ -12,10 +12,3 @@ admin.site.register(TimpNecesar)
 admin.site.register(ComplexitateDosar)
 admin.site.register(Pasiune)
 admin.site.register(ParticipareOlimpiade)
-
-@admin.register(Feedback)
-class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'rating', 'created_at')
-    list_filter = ('rating', 'created_at')
-    search_fields = ('name', 'email', 'message')
-    readonly_fields = ('created_at',)

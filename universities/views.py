@@ -110,27 +110,5 @@ def chestionar(request):
     return render(request, "universities/chestionar.html", {"form": form})
 
 
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            messages.success(request, "Mesajul a fost trimis cu succes!")
-            return render(request, "universities/bibliografie.html")
-    
-    else:
-        form = ContactForm()
-    return render(request, "universities/bibliografie.html", {"form": form})
-
-def feedback_form(request):
-    if request.method == 'POST':
-        form = FeedbackForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Thank you for your feedback!')
-            return redirect('feedback:form')
-    else:
-        form = FeedbackForm()
-    
-    return render(request, 'feedback/form.html', {'form': form})
 
 
