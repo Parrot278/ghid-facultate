@@ -1,10 +1,8 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render,get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .forms import Chestionar, ContactForm
+from .forms import Chestionar
 from .models import Facultate
-from .forms import FeedbackForm
-from .models import Feedback
 from django.views.generic import ListView
 
 # Create your views here.

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Facultate, Materie, Program, Domeniu, Skill, TimpNecesar, ComplexitateDosar, Pasiune, ParticipareOlimpiade, Feedback
+from .models import Facultate, Materie, Program, Domeniu, Skill, TimpNecesar, ComplexitateDosar, Pasiune, ParticipareOlimpiade
 
 # Register your models here.
 
