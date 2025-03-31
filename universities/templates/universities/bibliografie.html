@@ -18,16 +18,16 @@
             min-height: 100vh;
             }
 
-            .card{
+            .card {
                 color: black;
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 width: 600px;
-                height: 400px;
-            }
-
-            .card {
+                height: 450px;
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 transition: none;
+                display: flex;
+                align-items: flex-start;
+                text-align: justify;
             }
 
             .card:hover {
@@ -59,68 +59,27 @@
             </header>
             <div class="grid-container">
                 <div class="card">
-                    {% extends 'base.html' %}
-{% load static %}
-
-{% block title %}Feedback Form{% endblock %}
-
-{% block content %}
-<div class="container">
-    <div class="feedback-container">
-        <h1 class="text-center mb-4">Share Your Feedback</h1>
-        
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-        
-        <form method="post" novalidate>
-            {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="{{ form.name.id_for_label }}">Name</label>
-                {{ form.name }}
-                {% if form.name.errors %}
-                    <div class="error-message">{{ form.name.errors }}</div>
-                {% endif %}
-            </div>
-            
-            <div class="form-group">
-                <label for="{{ form.email.id_for_label }}">Email</label>
-                {{ form.email }}
-                {% if form.email.errors %}
-                    <div class="error-message">{{ form.email.errors }}</div>
-                {% endif %}
-            </div>
-            
-            <div class="form-group">
-                <label for="{{ form.message.id_for_label }}">Your Feedback</label>
-                {{ form.message }}
-                {% if form.message.errors %}
-                    <div class="error-message">{{ form.message.errors }}</div>
-                {% endif %}
-            </div>
-            
-            <div class="form-group">
-                <label>Rating</label>
-                <div class="star-rating">
-                    {{ form.rating }}
-                </div>
-                {% if form.rating.errors %}
-                    <div class="error-message">{{ form.rating.errors }}</div>
-                {% endif %}
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-block">Submit Feedback</button>
-        </form>
-    </div>
-</div>
-{% endblock %}
                     <p>Echipa noastra iti ofera urmatoarea adresa de email unde ne poti transmite orice sugestie, recenzie sau cerere!</p>
-                    <p style="font-weight: bold;";">Email: tea.team.facultas2025@gmail.com </p>
+                    <p style="font-weight: bold;";">Email: tea.teamlazar@gmail.com </p>
+                    <form>
+                        <p>sau scrie-ne aici</p>
+                        <div class="id">
+                            <input type="text" placeholder="Nume">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="id">
+                            <input type="text" placeholder="Prenume">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="id">
+                            <input type="email" placeholder="Adresa Email">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="id">
+                            <textarea name="" id="" cols="20" rows="10" placeholder="Suntem curiosi sa-ti auzim parerea!"></textarea>
+                        </div>
+                        <button class="returnbutton">Trimite</button>
+                    </form>
                 </div>
             </div>
             <br>
