@@ -25,6 +25,10 @@
                 flex-direction: column;
             }
 
+            .lii a{
+                color: rgb(246, 236, 207);
+            }
+
             .returnbutton {
                 padding: 12px 24px;
                 font-size: 16px;
@@ -49,13 +53,13 @@
                 <ol type="1">
                     {% for facultate in facultati %}
                     <li class="lii">
-                    {{facultate.nume}}
+                        <a href = "{% url 'detaliifacultate' facultate.id %}"> {{ facultate.nume }}</a>
                     </li>
                     {% endfor %}
                 </ol>
             </div>
             <br>
-            <a href="{% url 'facultatiromania' %}">
+            <a href="{% url 'chestionar' %}">
                 <button class="returnbutton">Inapoi la meniul precedent</button>
             </a>
         </div>
