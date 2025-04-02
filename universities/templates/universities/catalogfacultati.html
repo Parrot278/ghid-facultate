@@ -56,11 +56,13 @@
             <div class="card">
                 <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
         <p>
-            {%for facultate in facultati %}
+            <ol type="1">
+                {%for facultate in facultati %}
             <li>
                 <a href = "{% url 'detaliifacultate' facultate.id %}" style="color:rgb(55, 108, 255); align-items:justify;"> {{ facultate.nume }}</a>
             </li>
             {% endfor %}
+            </ol>
         </p>
             </div>
         </div>
