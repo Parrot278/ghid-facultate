@@ -41,9 +41,9 @@ MATERIE_PREFERATA =(
 SKILLS =(
     ("Talent muzical și abilități tehnice excelente", "Talent muzical și abilități tehnice excelente"),
     ("Capacitate de lucru cu date mari și complexitate mare", "Capacitate de lucru cu date mari și complexitate mare"),
-    ("talent_artistic", "Talent artistic: muzică, desen, teatru, etc"),
+    ("Talent artistic: muzică, desen, teatru, etc", "Talent artistic: muzică, desen, teatru, etc"),
     ("Abilități de traducere și interpretariat", "Abilități de traducere și interpretariat"),
-    ("Cunoștințe despre mediul digital și social media", "Cunoștințe despre mediul digital și social media"),
+    ("Cunoștințe solide de biologie, chimie și fizică", "Cunoștințe solide de biologie, chimie și fizică"),
     ("Capacitate de argumentare logică", "Capacitate de argumentare logică"),
     ("Cunoștințe de economie, finanțe și marketing", "Cunoștințe de economie, finanțe și marketing"),
     ("Cunoștințe de programare", "Cunoștințe de programare"),
