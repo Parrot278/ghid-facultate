@@ -78,10 +78,19 @@
                     Buget necesar pentru partciparea la cursuri: {{facultate.buget_taxa}} RON
                 </p>
                 <p>
-                    Este necesara admitere: {{facultate.cu_admitere}}
+                    {% if facultate.cu_admitere %}
+                        Este necesar examen de admitere: Da
+                    {% else %}
+                        Este necesar examen de admitere: Nu
+                    {% endif %}
                 </p>
                 <p>
-                    Exista camin dedicat facultatii: {{facultate.cu_camin}}
+                    {% if facultate.cu_camin %}
+                        Exista camin dedicat facultatii: Da
+                    {% else %}
+                        Exista camin dedicat facultatii: Nu
+                    {% endif %}
+                    
                 </p>
             </div>
         </div>
