@@ -17,6 +17,17 @@
             min-height: 100vh;
         }
 
+        .returnbutton {
+                padding: 12px 24px;
+                font-size: 16px;
+                color: white;
+                background-color: rgb(0, 128, 0);
+                border-color: black;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+
         .container {
             text-align: center;
         }
@@ -111,6 +122,7 @@
         <div class="step active">
             <p>{{ form.stii_domeniul.label_tag }}</p>
             {{ form.stii_domeniul }}
+            
         </div>
 
         <!-- Pagina 2 -->
@@ -158,12 +170,19 @@
             {{ form.camin_necesar }}
         </div>
 
+        
+
         <div class="buttons">
             <button type="button" class="button" id="prev">Înapoi</button>
             <button type="button" class="button" id="next">Înainte</button>
         </div>
     </form>
+    
 </div>
+
+<a href="{% url 'facultatiromania' %}">
+    <button class="returnbutton">Inapoi la meniul precedent</button>
+</a>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
