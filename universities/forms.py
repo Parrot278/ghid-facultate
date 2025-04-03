@@ -13,6 +13,7 @@ PASIUNI =(
     ("organizare_evenimente", "Organizare de evenimente"),
     ("public_speaking", "Public speaking"),
     ("it", "IT/programare"),
+    ("inginerie", "Inginerie"),
     ("animale", "Îngrijire/dresare de animale"),
     ("corp_uman", "Studiul corpului uman"),
     ("teatru", "Teatru, actorie"),
@@ -71,16 +72,21 @@ DOMENII =(
     ("arhitectura", "Arhitectură, urbanism, design interior"),
     ("informatica", "Informatică, programare"),
     ("matematica", "Matematică"),
+    ("cercetare", "Cercetare"),
     ("medicina", "Medicină"),
+    ("farmaceutica", "Farmaceutică"),
     ("drept", "Drept"),
     ("psihologie", "Psihologie"),
     ("economice", "Economie și Finanțe"),
-    ("marketing", "Marketing"),
     ("teatru", "Teatru, actorie, cinematografie"),
     ("stiinte_politice", "Științe politice"),
     ("sociologie", "Sociologie"),
-    ("aerospatiale", "Aero-spațiale"),
+    ("invatamant", "Invățământ"),
+    ("inginerie", "Inginerie"),
     ("turism", "Turism, hospitality"),
+    ("arte", "Domenii artistice (muzică, desen)"),
+    ("sport", "Sport"),
+
 )
 
 

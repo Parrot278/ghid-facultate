@@ -83,6 +83,7 @@ def chestionar(request):
             domenii_preferate = form.cleaned_data.get("domenii", [])
             if domenii_preferate:
                 rezultate_facultati = rezultate_facultati.filter(domenii__nume__in = domenii_preferate).distinct()
+                print(rezultate_facultati)
 
             # ASTEA SUNT CELE REQUIRED
             
