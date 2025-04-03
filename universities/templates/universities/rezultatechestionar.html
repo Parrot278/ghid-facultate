@@ -15,10 +15,20 @@
             background-attachment: fixed;
             min-height: 100vh;
 
+            .card{
+                width: fit-content;
+                height: fit-content;
+                transition: none;
+            }
+
+            .card:hover {
+                transform: none;
+            }
+
             .lii {
                 display:list-item;
                 align-items:flex-start;
-                color: rgb(246, 236, 207);
+                color: black;
                 gap: inherit;
                 flex-wrap: wrap;
                 margin-top: 1px;
@@ -26,7 +36,7 @@
             }
 
             .lii a{
-                color: rgb(246, 236, 207);
+                color: black;
             }
 
             .returnbutton {
@@ -49,7 +59,7 @@
                 <img class="logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
                 <h1 class="titlu-ep">Lista facultati compatibile</h1>
             </header>
-            <div>
+            <div class="card">
                 <ol type="1">
                     {% for facultate in facultati %}
                     <li class="lii">
