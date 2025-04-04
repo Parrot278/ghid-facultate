@@ -40,7 +40,7 @@ MATERIE_PREFERATA =(
 )
 
 SKILLS =(
-    ("Talent muzical și abilități tehnice excelente", "Talent muzical și abilități tehnice excelente"),
+    ("Abilități tehnice excelente", "Talent muzical și abilități tehnice excelente"),
     ("Capacitate de lucru cu date mari și complexitate mare", "Capacitate de lucru cu date mari și complexitate mare"),
     ("Talent artistic: muzică, desen, teatru, etc", "Talent artistic: muzică, desen, teatru, etc"),
     ("Abilități de traducere și interpretariat", "Abilități de traducere și interpretariat"),
@@ -50,6 +50,9 @@ SKILLS =(
     ("Cunoștințe de programare", "Cunoștințe de programare"),
     ("Lucru sub presiune", "Lucru sub presiune"),
     ("Abilități de cercetare și laborator", "Abilități de cercetare și laborator"),
+    ("Comunicare clară și persuasivă", "Comunicare clară și persuasivă"),
+    ("Abilități sportive", "Abilități sportive"),
+    ("Empatie față de oameni și animale", "Empatie față de oameni și animale"),
 )
 
 TIMP_PREGATIRE =(
