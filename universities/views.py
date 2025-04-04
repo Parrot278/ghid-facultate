@@ -14,8 +14,27 @@ def facultati_romania(request):
     return render(request, "universities/facultati.romania.html")
 
 def catalog_facultati(request):
-    items = Facultate.objects.all()
-    return render(request, "universities/catalogfacultati.html", {"facultati": items} )
+    facultati = Facultate.objects.all()
+
+    orase_selectate = request.GET.getlist("category")
+    cu_examen = request.GET.get("examen")
+    cu_camin = request.GET.get("camin")
+
+    if orase_selectate:
+        facultati = facultati.filter(oras__in=orase_selectate).distinct()
+    if cu_examen in ["true", "false"]:
+        facultati = facultati.filter(cu_admitere=(cu_examen == "true")).distinct()
+    if cu_camin in ["true", "false"]:
+        facultati = facultati.filter(cu_camin=(cu_camin == "true")).distinct()
+
+    orase = Facultate.objects.values_list("oras", flat=True).distinct()
+
+    return render(request, "universities/catalogfacultati.html", {
+        "facultati": facultati,
+        "orase": orase,
+        "orase_selectate": orase_selectate
+    })
+
 
 def cv_meniu(request):
     return render(request, "universities/cv.de.succes.html")
