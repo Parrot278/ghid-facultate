@@ -23,7 +23,12 @@
             transition: none;
             width: fit-content;
             height: fit-content;
-            display: flex; align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(246, 236, 207, 0.9);
+            padding: 20px;
+            border-radius: 15px;
         }
 
         .card:hover {
@@ -55,7 +60,7 @@
             <h1 class="titlu-ep">Catalog facultati</h1>
         </header>
 
-        <div class="grid-container" style="margin-bottom: 10px;">
+        <div class="grid-container" style="margin-bottom: 10px; display: flex; justify-content: center;">
         <div class="card">
             <div class="filter-form" style="padding: 15px; border-radius: 10px; margin: 15px 0;">
                 <form method="get">
@@ -93,7 +98,7 @@
                     <a href="{% url 'catalogfacultati' %}"><button type="button">Resetează</button></a>
                 </form>
             </div>
-            <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
+            <p>Aceasta este lista cu facultăți, pentru a afla mai multe informații dați click pe facultatea care vă interesează.</p>
         <p>
             {% if facultati %}
                 <ol type="1">
