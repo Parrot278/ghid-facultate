@@ -5,6 +5,7 @@ from .models import Facultate
 from django.views.generic import ListView
 from django.core.mail import EmailMessage
 
+
 # Create your views here.
 
 def ecran_principal(request):
@@ -128,6 +129,23 @@ def chestionar(request):
     
     return render(request, "universities/chestionar.html", {"form": form})
 
+def filtered_list(request):
+    # Get all objects initially
+    queryset = Facultate.objects.all()
+    
+    # Apply filters based on GET parameters
+    if request.GET.get('oras'):
+        queryset = queryset.filter(oras=request.GET.get('oras'))
+    
+    # Get unique cities for the dropdown
+    cities = Facultate.objects.values_list('oras', flat=True).distinct().order_by('oras')
+    
+    context = {
+        'objects': queryset,
+        'cities': cities,
+    }
+    
+    return render(request, 'your_template.html', context)
 
 
 

@@ -59,18 +59,17 @@
             <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
             <div class="filter-form">
                 <form method="get">
-                    
-                    <select name="category">
-                        <option value="">All Categories</option>
-                        {% for facultate in facultati %}
-                        <option value="{{ facultate.oras }}" {% if request.GET.category == facultate.oras %}selected{% endif %}>
-                            {{ facultate.oras }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                    
-                    <button type="submit" >Filter</button>
-                    <a href="{% url 'facultatiromania' %}"><button type="button">Reset</button></a>
+                    <form method="GET">
+                        <select name="oras">
+                            <option value="">All Cities</option>
+                            {% for facultate in facultati %}
+                                <option value="{{ facultate.oras }}" {% if request.GET.oras == facultate.oras %}selected{% endif %}>{{ facultate.oras }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                        <button type="submit">Filter</button>
+                        <a href="{% url 'filtered_list' %}"><button type="button">Reset</button></a>
+                    </form>
                 </form>
             </div>
         <p>
@@ -89,5 +88,11 @@
         </a>
     </div>
     
+    <script>
+        filterbutton.addEventListener("click", function (){
+            document.querySelector("views").submit();
+            queryset = queryset.filter(city=city_filter)
+        });
+    </script>
 </body>
 </html>
