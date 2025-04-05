@@ -38,6 +38,8 @@ MATERIE_PREFERATA =(
     ("logica", "Logică"),
     ("sociologie", "Sociologie"),
     ("filosofie", "Filosofie"),
+    ("desen", "Desen"),
+    ("muzica", "Muzica"),
     ("sport", "Sport"),
     ("limbi_straine", "Limbi străine (franceză, germană, spaniolă, etc)"),
     ("psihologie", "Psihologie"),
