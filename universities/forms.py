@@ -8,14 +8,18 @@ PASIUNI =(
     ("sport", "Sport"),
     ("proza_poezie", "Compunere de proză și poezie"),
     ("limbi_straine", "Limbi străine"),
+    ("stiinte_sociale", "Științe sociale și umaniste"),
     ("politica", "Politică"),
     ("voluntariat", "Voluntariat"),
     ("organizare_evenimente", "Organizare de evenimente"),
     ("public_speaking", "Public speaking"),
-    ("it", "IT/programare"),
+    ("economie_antreprenoriat", "Economie și antreprenoriat"),
+    ("it", "Dezvoltare software"),
     ("inginerie", "Inginerie"),
+    ("stiinte_exacte", "Științe exacte"),
     ("animale", "Îngrijire/dresare de animale"),
     ("corp_uman", "Studiul corpului uman"),
+    ("stiinte_ale_naturii", "Științe ale naturii"),
     ("teatru", "Teatru, actorie"),
 )
 
@@ -34,13 +38,15 @@ MATERIE_PREFERATA =(
     ("logica", "Logică"),
     ("sociologie", "Sociologie"),
     ("filosofie", "Filosofie"),
+    ("desen", "Desen"),
+    ("muzica", "Muzica"),
     ("sport", "Sport"),
     ("limbi_straine", "Limbi străine (franceză, germană, spaniolă, etc)"),
     ("psihologie", "Psihologie"),
 )
 
 SKILLS =(
-    ("Talent muzical și abilități tehnice excelente", "Talent muzical și abilități tehnice excelente"),
+    ("Abilități tehnice excelente", "Talent muzical și abilități tehnice excelente"),
     ("Capacitate de lucru cu date mari și complexitate mare", "Capacitate de lucru cu date mari și complexitate mare"),
     ("Talent artistic: muzică, desen, teatru, etc", "Talent artistic: muzică, desen, teatru, etc"),
     ("Abilități de traducere și interpretariat", "Abilități de traducere și interpretariat"),
@@ -50,6 +56,9 @@ SKILLS =(
     ("Cunoștințe de programare", "Cunoștințe de programare"),
     ("Lucru sub presiune", "Lucru sub presiune"),
     ("Abilități de cercetare și laborator", "Abilități de cercetare și laborator"),
+    ("Comunicare clară și persuasivă", "Comunicare clară și persuasivă"),
+    ("Abilități sportive", "Abilități sportive"),
+    ("Empatie față de oameni și animale", "Empatie față de oameni și animale"),
 )
 
 TIMP_PREGATIRE =(

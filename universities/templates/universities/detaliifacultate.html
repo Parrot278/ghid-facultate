@@ -57,38 +57,38 @@
         <div class="grid-container">
             <div class="card" style="width: 800px; height: 700px;">
                 <p>
-                    Descriere: {{facultate.descriere}}
+                    <strong>Descriere:</strong> {{facultate.descriere}}
                 </p>
                 <p>
-                    Adresa : {{facultate.adresa}}
+                    <strong>Adresa:</strong> {{facultate.adresa}}
                 </p>
                 <p>
-                    Oameni pe loc: {{facultate.oameni_pe_loc}}
+                    <strong>Oameni pe loc:</strong> {{facultate.oameni_pe_loc}}
                 </p>
                 <p>
-                    Rating: {{facultate.rating}}
+                    <strong>Rating:</strong> {{facultate.rating}} / 5
                 </p>
                 <p>
-                    Orasul in care se afla: {{facultate.oras}}
+                    <strong>Orasul in care se afla:</strong> {{facultate.oras}}
                 </p>
                 <p>
-                    Buget necesar pentru acomodarea in camin: {{facultate.buget_camin}} RON
+                    <strong>Buget necesar pentru acomodarea in camin:</strong> {{facultate.buget_camin}} RON
                 </p>
                 <p>
-                    Buget necesar pentru partciparea la cursuri: {{facultate.buget_taxa}} RON
+                    <strong>Buget necesar pentru partciparea la cursuri:</strong> {{facultate.buget_taxa}} RON
                 </p>
                 <p>
                     {% if facultate.cu_admitere %}
-                        Este necesar examen de admitere: Da
+                        <strong>Este necesar examen de admitere:</strong> Da
                     {% else %}
-                        Este necesar examen de admitere: Nu
+                        <strong>Este necesar examen de admitere:</strong> Nu
                     {% endif %}
                 </p>
                 <p>
                     {% if facultate.cu_camin %}
-                        Exista camin dedicat facultatii: Da
+                        <strong>Exista camin dedicat facultatii:</strong> Da
                     {% else %}
-                        Exista camin dedicat facultatii: Nu
+                        <strong>Exista camin dedicat facultatii:</strong> Nu
                     {% endif %}
                     
                 </p>
@@ -96,11 +96,11 @@
         </div>
 
         <div class="grid-container">
-            <p style="color:  rgb(246, 236, 207); font-size: 12px;">*Facultas nu garanteaza acuratetea maxima a informatiilor transmise</p>
+            <p style="color:  rgb(246, 236, 207); font-size: 12px;">*Facultas nu garantează acuratețea maximă a informațiilor transmise.</p>
         </div>
         
         <a href="{% url 'catalogfacultati' %}">
-            <button class="returnbutton">Inapoi la meniul anterior </button>
+            <button class="returnbutton">Inapoi la lista cu facultăți </button>
         </a>
     </div>
 </body>

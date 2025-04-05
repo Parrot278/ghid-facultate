@@ -61,11 +61,15 @@
             </header>
             <div class="card">
                 <ol type="1">
-                    {% for facultate in facultati %}
-                    <li class="lii">
-                        <a href = "{% url 'detaliifacultate' facultate.id %}"> {{ facultate.nume }}</a>
-                    </li>
-                    {% endfor %}
+                    {% if facultati %}
+                        {% for facultate in facultati %}
+                        <li class="lii">
+                            <a href = "{% url 'detaliifacultate' facultate.id %}"> {{ facultate.nume }}</a>
+                        </li>
+                        {% endfor %}
+                    {% else %}
+                        <p style="color: rgb(0, 0, 0); font-weight: bold;">Ne pare rău, dar nu există nicio facultate care să corespundă alegerilor tale.</p>
+                    {% endif %}
                 </ol>
             </div>
             <br>

@@ -23,7 +23,12 @@
             transition: none;
             width: fit-content;
             height: fit-content;
-            display: flex; align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(246, 236, 207, 0.9);
+            padding: 20px;
+            border-radius: 15px;
         }
 
         .card:hover {
@@ -52,34 +57,40 @@
     <div class="container">
         <header>
             <img class = "logo" src="{% static 'universities/images/facultas.jpg' %}" alt="Facultas Logo">
-            <h1 class="titlu-ep">Catalog facultati</h1>
+            <h1 class="titlu-ep">Catalog facultăți</h1>
         </header>
-        <div class="grid-container" style="margin-bottom: 10px;">
+
+        <div class="grid-container" style="margin-bottom: 10px; display: flex; justify-content: center;">
         <div class="card">
-            <p>Aceasta este lista cu facultati, pentru a afla mai multe informatii dati click pe facultatea care va intereseaza</p>
-            <div class="filter-form">
+            <div class="filter-form" style="padding: 15px; border-radius: 10px; margin: 15px 0;">
                 <form method="get">
-                    <form method="GET">
-                        <select name="oras">
-                            <option value="">All Cities</option>
-                            {% for facultate in facultati %}
-                                <option value="{{ facultate.oras }}" {% if request.GET.oras == facultate.oras %}selected{% endif %}>{{ facultate.oras }}</option>
-                            {% endfor %}
-                        </select>
-                        
-                        <button type="submit">Filter</button>
-                        <a href="{% url 'filtered_list' %}"><button type="button">Reset</button></a>
-                    </form>
+                    
+                    <select name="category">
+                        <option value="">All Categories</option>
+                        {% for facultate in facultati %}
+                        <option value="{{ facultate.oras }}" {% if request.GET.category == facultate.oras %}selected{% endif %}>
+                            {{ facultate.oras }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    
+                    <button type="submit" >Filter</button>
+                    <a href="{% url 'facultatiromania' %}"><button type="button">Reset</button></a>
                 </form>
             </div>
+            <p>Aceasta este lista cu facultăți, pentru a afla mai multe informații dați click pe facultatea care vă interesează.</p>
         <p>
-            <ol type="1">
-                {%for facultate in facultati %}
-            <li>
-                <a href = "{% url 'detaliifacultate' facultate.id %}" style="color:rgb(55, 108, 255); align-items:justify;"> {{ facultate.nume }}</a>
-            </li>
-            {% endfor %}
-            </ol>
+            {% if facultati %}
+                <ol type="1">
+                    {% for facultate in facultati %}
+                    <li>
+                        <a href = "{% url 'detaliifacultate' facultate.id %}" style="color:rgb(55, 108, 255); align-items:justify;"> {{ facultate.nume }}</a>
+                    </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <p style="color: rgb(0, 0, 0); font-weight: bold;">Ne pare rău, dar nu există nicio facultate care să corespundă filtrului ales.</p>
+            {% endif %}
         </p>
             </div>
         </div>
