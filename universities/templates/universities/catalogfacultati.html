@@ -35,6 +35,22 @@
             transform: none;
         }
 
+        .filter-form button{
+            border-radius: 15px;
+            width: 80px;
+            height: 40px;
+            background-color: rgb(3, 30, 87);
+            color: white;
+        }
+
+        .filter-form select{
+            border-radius: 15px;
+            width: fit-content;
+            height: 40px;
+            background-color: rgb(3, 30, 87);
+            color: white;
+        }
+
         .returnbutton {
                 padding: 12px 24px;
                 font-size: 16px;
@@ -62,11 +78,11 @@
 
         <div class="grid-container" style="margin-bottom: 10px; display: flex; justify-content: center;">
         <div class="card">
-            <div class="filter-form" style="padding: 15px; border-radius: 10px; margin: 15px 0;">
+            <div class="filter-form" style="padding: 15px; border-radius: 10px; margin: 15px 0; display: flex; align-items: flex-start;">
                 <form method="get">
                     
                     <select name="category">
-                        <option value="">All Categories</option>
+                        <option value="" >All Categories</option>
                         {% for facultate in facultati %}
                         <option value="{{ facultate.oras }}" {% if request.GET.category == facultate.oras %}selected{% endif %}>
                             {{ facultate.oras }}
@@ -84,7 +100,7 @@
                 <ol type="1">
                     {% for facultate in facultati %}
                     <li>
-                        <a href = "{% url 'detaliifacultate' facultate.id %}" style="color:rgb(55, 108, 255); align-items:justify;"> {{ facultate.nume }}</a>
+                        <a href = "{% url 'detaliifacultate' facultate.id %}" style="color:rgb(3, 30, 87); align-items:justify;"> {{ facultate.nume }}</a>
                     </li>
                     {% endfor %}
                 </ol>
