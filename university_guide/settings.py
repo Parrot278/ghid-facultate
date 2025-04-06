@@ -130,4 +130,4 @@ EMAIL_HOST_USER = 'e27657d9746bc6'
 EMAIL_HOST_PASSWORD = 'b7955f65bd9b8e'
 EMAIL_PORT = '2525'
 
-ALLOWED_HOSTS = ['ghid-facultate.onrender.com']
+ALLOWED_HOSTS = ['*']
