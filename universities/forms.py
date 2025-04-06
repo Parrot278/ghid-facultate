@@ -104,7 +104,7 @@ LOCATIE_PREFERATA =(
     ("Cluj", "Cluj-Napoca"),
     ("Iasi", "Iași"),
     ("Timisoara", "Timișoara"),
-    ("Constanta", "Constanța"),
+    ("Constanța", "Constanța"),
     ("Sibiu", "Sibiu"),
     ("Brasov", "Brașov"),
     ("Oradea", "Oradea"),
