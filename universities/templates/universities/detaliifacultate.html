@@ -19,12 +19,19 @@
 
         .card {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            transition: none;
             display: flex;
+            flex-direction: column; /* important */
             align-items: flex-start;
             text-align: justify;
             font-size: 20px;
+            width: 800px;
+            height: 500px;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
         }
+
 
         .card:hover {
             transform: none;
@@ -48,6 +55,26 @@
         .returnbutton:hover {
             transform: scale(1.1);
         }
+        .card ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .card::-webkit-scrollbar {
+            width: 8px; /* width of the scrollbar */
+        }
+
+        .card::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .card::-webkit-scrollbar-thumb {
+            background-color: #a97c50;
+            border-radius: 10px; 
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
 
     </style>
 </head>
@@ -59,7 +86,7 @@
         </header>
 
         <div class="grid-container">
-            <div class="card" style="width: 800px; height: 700px;">
+            <div class="card" style="width: 800px;">
                 <p>
                     <strong>Descriere:</strong> {{facultate.descriere}}
                 </p>
@@ -94,8 +121,23 @@
                     {% else %}
                         <strong>Exista camin dedicat facultatii:</strong> Nu
                     {% endif %}
-                    
                 </p>
+                <p><strong>Programe disponibile:</strong></p>
+                <ul>
+                    {% for program in facultate.programe.all %}
+                        <li>{{ program.nume }} — {{ program.tip }}</li>
+                    {% empty %}
+                        <li>Nu există programe afișate pentru această facultate.</li>
+                    {% endfor %}
+                </ul>
+                <p><strong>Domenii:</strong></p>
+                <ul>
+                    {% for domeniu in facultate.domenii.all %}
+                        <li>{{ domeniu.nume }}</li>
+                    {% empty %}
+                        <li>Nu există domenii afișate pentru această facultate.</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
 

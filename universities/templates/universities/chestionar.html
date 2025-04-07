@@ -217,9 +217,9 @@
         nextButton.addEventListener("click", function () {
             let stiiDomeniul = document.querySelector('input[name="stii_domeniul"]:checked');
 
-            // Daca e valid
+            // Daca s-a ales prima intrebare (cea cu esti sigur)
             if (currentStep < steps.length - 1) {
-                if (!isStepValid(currentStep)) {
+                if (!isStepValid(currentStep) && currentStep == 0) {
                     alertBox.classList.add("show");
                     return;
                 } else {
